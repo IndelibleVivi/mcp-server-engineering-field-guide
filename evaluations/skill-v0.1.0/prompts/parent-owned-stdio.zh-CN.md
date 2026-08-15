@@ -1,0 +1,1 @@
+请显式使用 `$mcp-server-engineering`，对这个 synthetic MCP server 做 read-only audit。依据它声明的 protocol revision，说明应加载哪些 profile、哪些 controls 适用或 `not applicable`、调用 authority / reachability 由谁持有，以及仅凭当前 repository 能支持到哪一层 evidence claim。不要修改文件，也不要把 parent process 描述成不存在的 network authentication protocol。最终回答请使用中文。

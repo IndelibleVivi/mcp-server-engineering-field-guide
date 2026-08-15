@@ -13,12 +13,26 @@ import unittest
 import zipfile
 
 
+sys.dont_write_bytecode = True
+
+
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "skill" / "mcp-server-engineering" / "scripts"
+TOOLS = ROOT / "tools"
 
 
 def load_script(name: str):
     path = SCRIPTS / f"{name}.py"
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"cannot load {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def load_tool(name: str):
+    path = TOOLS / f"{name}.py"
     spec = importlib.util.spec_from_file_location(name, path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"cannot load {path}")
@@ -82,9 +96,7 @@ class ReceiptValidationTests(unittest.TestCase):
             return self.receipts.validate(path)
 
     def test_published_receipts_validate(self):
-        paths = sorted(
-            (ROOT / "case-studies" / "gpt-thinking-block-mcp" / "receipts").glob("*.json")
-        )
+        paths = sorted(ROOT.rglob("receipts/*.json"))
         self.assertGreaterEqual(len(paths), 2)
         for path in paths:
             with self.subTest(path=path.name):
@@ -245,6 +257,204 @@ class BundleValidationTests(ScriptRunnerMixin, unittest.TestCase):
         self.assertIn("compression ratio", result.stderr)
 
 
+class EvaluationCorpusTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.validator = load_tool("validate_evaluation_corpus")
+        cls.runner = load_tool("run_skill_dogfood")
+
+    def copy_repository(self, directory: str) -> Path:
+        destination = Path(directory) / "repository"
+        shutil.copytree(
+            ROOT,
+            destination,
+            ignore=shutil.ignore_patterns(".git", "__pycache__", "*.pyc", "*.pyo"),
+        )
+        return destination
+
+    def test_preregistered_corpus_validates_before_results(self):
+        self.assertEqual(self.validator.validate(ROOT, allow_missing_results=True), [])
+
+    def test_fixture_hash_drift_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.copy_repository(directory)
+            fixture = (
+                repository
+                / "evaluations"
+                / "skill-v0.1.0"
+                / "fixtures"
+                / "parent-owned-stdio"
+                / "server.py"
+            )
+            fixture.write_text(fixture.read_text(encoding="utf-8") + "\n# drift\n", encoding="utf-8")
+            errors = self.validator.validate(repository, allow_missing_results=True)
+        self.assertTrue(any("fixture_content_sha256 mismatch" in error for error in errors), errors)
+
+    def test_zero_discovered_receipts_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.copy_repository(directory)
+            for receipt in repository.rglob("receipts/*.json"):
+                receipt.unlink()
+            errors = self.validator.validate(repository, allow_missing_results=True)
+        self.assertTrue(any("zero discovered public receipts" in error for error in errors), errors)
+
+    def test_private_path_in_projected_output_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.copy_repository(directory)
+            evaluation = repository / "evaluations" / "skill-v0.1.0"
+            results = json.loads((evaluation / "results.json").read_text(encoding="utf-8"))
+            output = evaluation / results["runs"][0]["output_projection_path"]
+            output.write_text("Private path: /" + "Users/example/fixture.py\n", encoding="utf-8")
+            errors = self.validator.validate(repository)
+        self.assertTrue(
+            any("projected output contains private path marker" in error for error in errors),
+            errors,
+        )
+
+    def test_invalid_completed_shape_cannot_count_for_release(self):
+        with tempfile.TemporaryDirectory() as directory:
+            repository = self.copy_repository(directory)
+            evaluation = repository / "evaluations" / "skill-v0.1.0"
+            receipts = evaluation / "receipts"
+            outputs = evaluation / "outputs"
+            receipts.mkdir(exist_ok=True)
+            outputs.mkdir(exist_ok=True)
+            receipt = valid_receipt()
+            receipt["receipt_id"] = "EVAL-INVALID-001"
+            receipt["recorded_at"] = "2026-08-16T00:01:00+08:00"
+            (receipts / "EVAL-INVALID-001.json").write_text(
+                json.dumps(receipt), encoding="utf-8"
+            )
+            (outputs / "RUN-INVALID.md").write_text("Projected output.\n", encoding="utf-8")
+            rubric = json.loads((evaluation / "rubric.json").read_text(encoding="utf-8"))
+            item_ids = rubric["scenario_items"]["CANARY-DISCOVERY-001"]
+            results = {
+                "schema_version": 1,
+                "rubric_version": rubric["rubric_version"],
+                "release_candidate_skill_version": "0.1.0",
+                "runs": [
+                    {
+                        "run_id": "RUN-INVALID",
+                        "scenario_id": "CANARY-DISCOVERY-001",
+                        "scenario_revision": 1,
+                        "skill_version": "0.1.0",
+                        "receipt_id": "EVAL-INVALID-001",
+                        "output_projection_path": "outputs/RUN-INVALID.md",
+                        "run_validity": "trace-incomplete",
+                        "counts_for_release": True,
+                        "rubric_outcomes": {item_id: "pass" for item_id in item_ids},
+                        "evidence_references": ["EVAL-INVALID-001"],
+                        "assessment_owner": "test assessor",
+                        "assessment_method": "synthetic unit test",
+                        "model_assisted_assessment": False,
+                        "residuals": [],
+                    }
+                ],
+            }
+            (evaluation / "results.json").write_text(json.dumps(results), encoding="utf-8")
+            errors = self.validator.validate(repository)
+        self.assertTrue(any("invalid run cannot count for release" in error for error in errors), errors)
+
+    def test_completed_turn_with_item_diagnostic_can_be_valid(self):
+        trace = {
+            "oracle_access_observed": False,
+            "turn_failed": False,
+            "top_level_errors": [],
+            "thread_started": True,
+            "jsonl_parse_errors": [],
+            "turn_completed": True,
+            "final_agent_message": "done",
+            "entrypoint_loaded": True,
+            "skill_material_loaded": True,
+            "skill_loaded": True,
+            "item_level_errors": [{"message": "nonfatal diagnostic"}],
+        }
+        validity, reasons = self.runner.classify_validity(
+            0, False, trace, {"requires_skill_load": True}
+        )
+        self.assertEqual((validity, reasons), ("valid-completed", []))
+
+    def test_trace_parser_accepts_installed_symlink_spelling(self):
+        skill = {
+            "entrypoint": Path("/canonical/mcp-server-engineering/SKILL.md"),
+            "installed_entrypoint": Path("/installed/mcp-server-engineering/SKILL.md"),
+            "realpath": Path("/canonical/mcp-server-engineering"),
+            "installed_path": Path("/installed/mcp-server-engineering"),
+        }
+        events = [
+            {"type": "thread.started", "thread_id": "test"},
+            {
+                "type": "item.completed",
+                "item": {
+                    "id": "item_1",
+                    "type": "command_execution",
+                    "command": "sed -n 1,200p /installed/mcp-server-engineering/SKILL.md",
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {"id": "item_2", "type": "agent_message", "text": "done"},
+            },
+            {"type": "turn.completed"},
+        ]
+        trace = self.runner.parse_events(
+            "\n".join(json.dumps(event) for event in events), skill
+        )
+        self.assertTrue(trace["skill_loaded"])
+        self.assertTrue(trace["entrypoint_loaded"])
+        self.assertTrue(trace["skill_material_loaded"])
+        self.assertEqual(trace["skill_invocation_evidence"][0]["reads"], ["SKILL.md"])
+
+    def test_trace_parser_accepts_relative_reference_spelling(self):
+        skill = {
+            "entrypoint": Path("/canonical/mcp-server-engineering/SKILL.md"),
+            "installed_entrypoint": Path("/installed/mcp-server-engineering/SKILL.md"),
+            "realpath": ROOT / "skill" / "mcp-server-engineering",
+            "installed_path": ROOT / "skill" / "mcp-server-engineering",
+        }
+        events = [
+            {"type": "thread.started", "thread_id": "test"},
+            {
+                "type": "item.completed",
+                "item": {
+                    "id": "item_1",
+                    "type": "command_execution",
+                    "command": "sed -n 1,200p references/protocol-selection.md",
+                },
+            },
+            {
+                "type": "item.completed",
+                "item": {"id": "item_2", "type": "agent_message", "text": "done"},
+            },
+            {"type": "turn.completed"},
+        ]
+        trace = self.runner.parse_events(
+            "\n".join(json.dumps(event) for event in events), skill
+        )
+        self.assertFalse(trace["entrypoint_loaded"])
+        self.assertTrue(trace["skill_material_loaded"])
+        self.assertEqual(trace["loaded_reference_ids"], ["protocol-selection"])
+
+    def test_process_exit_zero_without_completed_turn_is_trace_incomplete(self):
+        trace = {
+            "oracle_access_observed": False,
+            "turn_failed": False,
+            "top_level_errors": [],
+            "thread_started": True,
+            "jsonl_parse_errors": [],
+            "turn_completed": False,
+            "final_agent_message": None,
+            "entrypoint_loaded": True,
+            "skill_material_loaded": True,
+            "skill_loaded": True,
+        }
+        validity, reasons = self.runner.classify_validity(
+            0, False, trace, {"requires_skill_load": True}
+        )
+        self.assertEqual(validity, "trace-incomplete")
+        self.assertTrue(reasons)
+
+
 class RepositoryContractTests(ScriptRunnerMixin, unittest.TestCase):
     def copy_repository(self, directory: str) -> Path:
         destination = Path(directory) / "repository"
@@ -354,7 +564,7 @@ class RepositoryContractTests(ScriptRunnerMixin, unittest.TestCase):
             copied = Path(directory) / "mcp-server-engineering"
             shutil.copytree(ROOT / "skill" / "mcp-server-engineering", copied)
             cache = copied / "scripts" / "__pycache__"
-            cache.mkdir()
+            cache.mkdir(exist_ok=True)
             (cache / "validator.cpython-313.pyc").write_bytes(b"\x00compiled")
             result = self.run_script("validate_skill_package", str(copied))
         self.assertNotEqual(result.returncode, 0)

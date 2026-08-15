@@ -28,7 +28,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Check Python syntax without bytecode artifacts
-        run: python skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tests
+        run: python skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tools tests
 
       - name: Run validation-script tests
         run: python -m unittest discover -v
@@ -39,8 +39,8 @@ jobs:
           python skill/mcp-server-engineering/scripts/sync_profile_mirrors.py --check VERSION-REGISTER.json
           python skill/mcp-server-engineering/scripts/check_bilingual_coverage.py .
 
-      - name: Validate public evidence receipts
-        run: python skill/mcp-server-engineering/scripts/check_receipt_schema.py case-studies/gpt-thinking-block-mcp/receipts/*.json
+      - name: Validate evaluation corpus and public evidence receipts
+        run: python tools/validate_evaluation_corpus.py .
 
       - name: Validate skill package and local links
         run: |

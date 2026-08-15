@@ -2,6 +2,17 @@
 
 简体中文 · [English](CHANGELOG.md)
 
+## Unreleased
+
+
+## 2.0.1 — 2026-08-16
+
+- 澄清 historical `2.0.0` validation wording，区分 synthetic scenario forward-testing 与 installed end-to-end dogfooding。
+- 加入 public、oracle-isolated 的 installed-skill evaluation corpus，包含 projected outputs、same-owner receipts、deterministic validation，以及明确的 process / turn / rubric boundaries。
+- 在 amended rubric `1.1.0` 下，用一个 discovery canary 与八个 scored scenarios 对 byte-identical installed skill 做 forward test；九个 release runs 均完成并通过 critical items，但不声称 independent assurance 或 no-skill comparison。
+- 保留并公开说明 rubric `1.0.0` 的 non-release preflight runs：它们暴露了 symlink/reference observer defects 与 ambiguous bilingual prompt；修订后的 prompts 使用 scenario revision `2`，不重写既有 evidence。
+- 澄清本指南解决的问题、适用与不适用受众、protocol-profile authority，以及 external review handoff。
+
 ## 2.0.0 — 2026-08-16
 
 Independent、revision-aware Field Guide 的第一次 public release。
@@ -13,5 +24,5 @@ Independent、revision-aware Field Guide 的第一次 public release。
 - 加入可分发 `mcp-server-engineering` skill，包含 workflow references、双语 templates 与 validation scripts。
 - 用 registered SHA-256 identity 将 canonical bilingual profiles 绑定到 byte-identical skill mirrors。
 - 加入经过 adversarial tests 的 validators，覆盖 manifest-driven bilingual coverage、receipt-provenance consistency、generated-artifact rejection、bounded ZIP inspection、local links 与 public text boundaries。
-- Release 前 forward-test historical audit、revision upgrade、parent-owned stdio 与 multi-projection MCP App routing。
+- Release 前完成了四类 synthetic workflow 的 scenario forward-test；installed skill 的 end-to-end dogfooding 当时尚未完成。
 - Documentation/evidence prose 使用 CC BY 4.0；skill/code surface 使用 Apache-2.0。

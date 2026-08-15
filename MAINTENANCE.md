@@ -37,17 +37,24 @@ The guide, protocol profiles, moving integration guidance, case-study receipts, 
 - Run the official skill validator and the repository-local structural validator.
 - Forward-test material workflow changes on a pinned public or synthetic server without exposing private source.
 
+## External review handoff
+
+- Prefer a public repository URL plus a full commit hash over a ZIP attachment.
+- If an archive is necessary, run `scan_review_bundle.py` before transfer and ask the reviewer to rerun strict UTF-8, `U+FFFD`, inventory, and manifest checks after ingestion.
+- A read-only sandbox prevents mutation; it does not prove that an evaluation agent could not read an oracle. Materialize only the selected fixture, prompt, and fixture-local metadata in a separate temporary repository.
+- If transfer changes bytes, stop exact-code claims and recover from the pinned public commit or a verified strict-UTF-8 text bundle. Keep the damaged artifact only as transfer evidence.
+
 ## Release checks
 
 Run:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 python3 skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tests
+PYTHONDONTWRITEBYTECODE=1 python3 skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tools tests
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -v
 python3 skill/mcp-server-engineering/scripts/validate_version_register.py VERSION-REGISTER.json
 python3 skill/mcp-server-engineering/scripts/sync_profile_mirrors.py --check VERSION-REGISTER.json
 python3 skill/mcp-server-engineering/scripts/check_bilingual_coverage.py .
-python3 skill/mcp-server-engineering/scripts/check_receipt_schema.py case-studies/gpt-thinking-block-mcp/receipts/*.json
+python3 tools/validate_evaluation_corpus.py .
 python3 skill/mcp-server-engineering/scripts/validate_skill_package.py skill/mcp-server-engineering
 python3 skill/mcp-server-engineering/scripts/check_markdown_links.py .
 python3 skill/mcp-server-engineering/scripts/scan_review_bundle.py .

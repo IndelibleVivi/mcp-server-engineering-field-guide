@@ -1,0 +1,1 @@
+请显式使用 `$mcp-server-engineering`，对这个 synthetic、already-hardened MCP server 做 read-only audit。不要为了显得严格而制造 finding；分别给出 source-verifiable、runtime-unknown 与 `not applicable` 的结论，并守住当前 evidence ceiling。不要修改文件。最终回答请使用中文。

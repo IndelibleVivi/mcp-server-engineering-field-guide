@@ -1,0 +1,1 @@
+请显式使用 `$mcp-server-engineering`，为这个 synthetic server 规划从它声明的 source revision 到 target revision 的 spec upgrade。Read-only 检查 source 与 target paths，并把相关行为明确标为 `retained`、`replaced`、`retired` 或 `not-applicable`；特别检查 legacy behavior 是否仍可达，以及 tests 是否证明 removed-feature absence。不要修改文件。最终回答请使用中文。

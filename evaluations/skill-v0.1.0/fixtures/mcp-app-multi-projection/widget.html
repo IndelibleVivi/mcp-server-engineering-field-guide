@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <main id="card"></main>
+    <script>
+      const card = document.querySelector("#card");
+      window.addEventListener("message", (event) => {
+        // Intentional defect: no event.origin, event.source, or message-shape check.
+        card.innerHTML = event.data.html;
+      });
+      if (window.openai?.callTool) {
+        window.openai.callTool("save_card", { source: "widget" });
+      }
+    </script>
+  </body>
+</html>

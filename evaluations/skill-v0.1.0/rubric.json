@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "rubric_version": "1.1.0",
+  "allowed_outcomes": ["pass", "partial", "fail", "unknown"],
+  "items": {
+    "skill-entrypoint-loaded": {
+      "critical": true,
+      "expected_decision": "The command trace proves that the installed SKILL.md entrypoint was read."
+    },
+    "skill-material-loaded": {
+      "critical": true,
+      "expected_decision": "The command trace proves that the installed SKILL.md entrypoint or at least one bundled reference was read."
+    },
+    "positive-discovery": {
+      "critical": true,
+      "expected_decision": "A clearly matching MCP audit prompt discovers the skill without explicitly naming it."
+    },
+    "revision-selection": {
+      "critical": true,
+      "expected_decision": "The declared MCP revision and JSON-RPC base are selected without retroactive rules."
+    },
+    "stdio-http-na": {
+      "critical": true,
+      "expected_decision": "Host, Origin, CORS, request-target, socket admission, and HTTP body framing are not applicable to the pure stdio fixture."
+    },
+    "stdio-owner-precision": {
+      "critical": true,
+      "expected_decision": "The parent/OS process boundary owns reachability and caller possession; it is not mislabeled as an HTTP authentication protocol."
+    },
+    "evidence-ceiling": {
+      "critical": true,
+      "expected_decision": "Source-only observations remain source-level; runtime, host, and independent claims remain unknown or unverified."
+    },
+    "historical-revision": {
+      "critical": true,
+      "expected_decision": "Sessions and SSE are not condemned merely because a later revision removed or changed them."
+    },
+    "revision-independent-defect": {
+      "critical": true,
+      "expected_decision": "The audit still identifies the false readOnly annotation and split validation authority."
+    },
+    "dual-profile-migration": {
+      "critical": true,
+      "expected_decision": "Both source and target profiles are used and behavior is classified as retained, replaced, retired, or not applicable."
+    },
+    "removed-feature-absence": {
+      "critical": true,
+      "expected_decision": "The working target path does not hide the still-reachable legacy session/SSE path or the missing absence test."
+    },
+    "app-projection-separation": {
+      "critical": true,
+      "expected_decision": "Model-visible content, structured component data, UI-only metadata, DOM, postMessage, widget authority, CSP, and cache identity are separated."
+    },
+    "dated-integration-boundary": {
+      "critical": true,
+      "expected_decision": "Offline source review keeps current host compatibility dated or unknown and does not upgrade bundled guidance into a live fact."
+    },
+    "no-invented-findings": {
+      "critical": true,
+      "expected_decision": "The already-good fixture does not acquire fabricated defects or unrelated hardening requirements."
+    },
+    "mixed-evidence-status": {
+      "critical": true,
+      "expected_decision": "The report distinguishes one source-verifiable claim, one runtime-unknown claim, and one not-applicable MCP Apps claim."
+    },
+    "internal-proportionality": {
+      "critical": true,
+      "expected_decision": "The explicitly invoked skill answers the small SSE question directly without creating an audit bundle, threat model, or test matrix."
+    },
+    "discovery-precision": {
+      "critical": true,
+      "expected_decision": "The wording-only task does not load the MCP engineering skill or expand into protocol/security review."
+    },
+    "bilingual-semantic-parity": {
+      "critical": true,
+      "expected_decision": "The paired English and Chinese reports preserve revision, N/A controls, owner boundary, and evidence ceiling without translation drift."
+    },
+    "output-language-match": {
+      "critical": true,
+      "expected_decision": "The final answer uses the output language explicitly required by the scenario prompt."
+    }
+  },
+  "scenario_items": {
+    "CANARY-DISCOVERY-001": [
+      "skill-entrypoint-loaded",
+      "positive-discovery"
+    ],
+    "STDIO-ZH-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "revision-selection",
+      "stdio-http-na",
+      "stdio-owner-precision",
+      "evidence-ceiling"
+    ],
+    "HTTP-HIST-EN-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "historical-revision",
+      "revision-independent-defect",
+      "evidence-ceiling"
+    ],
+    "UPGRADE-ZH-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "dual-profile-migration",
+      "removed-feature-absence",
+      "evidence-ceiling"
+    ],
+    "MCP-APP-EN-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "app-projection-separation",
+      "dated-integration-boundary",
+      "evidence-ceiling"
+    ],
+    "GOOD-ZH-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "no-invented-findings",
+      "mixed-evidence-status",
+      "evidence-ceiling"
+    ],
+    "SSE-LIGHT-EN-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "internal-proportionality"
+    ],
+    "WORDING-DISCOVERY-EN-001": [
+      "output-language-match",
+      "discovery-precision",
+      "internal-proportionality"
+    ],
+    "STDIO-EN-PAIR-001": [
+      "skill-material-loaded",
+      "output-language-match",
+      "revision-selection",
+      "stdio-http-na",
+      "stdio-owner-precision",
+      "evidence-ceiling",
+      "bilingual-semantic-parity"
+    ]
+  }
+}

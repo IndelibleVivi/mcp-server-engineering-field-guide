@@ -1,0 +1,1 @@
+Improve only the user-facing description for the `notes_lookup` tool in `tool.py`. Return the replacement string and a one-sentence rationale. Do not audit the server, discuss protocol or security architecture, or modify files. Write the final answer in English.

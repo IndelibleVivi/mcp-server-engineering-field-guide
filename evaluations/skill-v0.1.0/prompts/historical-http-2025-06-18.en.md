@@ -1,0 +1,1 @@
+Explicitly use `$mcp-server-engineering` for a read-only audit of this synthetic Streamable HTTP server against the MCP revision it declares. Distinguish historically valid lifecycle behavior from actual defects that are independent of later protocol changes. Report evidence level and residual unknowns; do not modify files. Write the final answer in English.

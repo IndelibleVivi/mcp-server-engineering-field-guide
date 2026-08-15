@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "rubric_version": "1.1.0",
+  "release_candidate_guide_version": "2.0.1",
+  "release_candidate_skill_version": "0.1.0",
+  "assessment_authority": {
+    "owner": "IndelibleVivi same-owner evaluation workflow",
+    "method": "Objective trace checks plus Codex-assisted qualitative comparison to preregistered expected decisions; no independent assessor.",
+    "model_assisted_assessment": true
+  },
+  "release_gate": {
+    "critical_items_require_pass": true,
+    "invalid_runs_count_for_release": false,
+    "required_scenarios": 9,
+    "passing_required_scenarios": 9,
+    "decision": "pass"
+  },
+  "excluded_preflight_runs": [
+    {
+      "run_id": "20260815T180237-CANARY-DISCOVERY-001",
+      "rubric_version": "1.0.0",
+      "disposition": "invalid evaluation observation",
+      "reason": "The first observer recognized only the resolved path and missed the installed symlink spelling."
+    },
+    {
+      "run_id": "20260815T180518-CANARY-DISCOVERY-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "Rubric 1.0.0 was superseded before publication."
+    },
+    {
+      "run_id": "20260815T180710-STDIO-ZH-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T180959-HTTP-HIST-EN-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T181336-UPGRADE-ZH-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T181620-MCP-APP-EN-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T182148-GOOD-ZH-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T182411-SSE-LIGHT-EN-001",
+      "rubric_version": "1.0.0",
+      "disposition": "invalid evaluation observation",
+      "reason": "The observer missed direct relative-path reads of bundled references and the prompt lacked the amended language control."
+    },
+    {
+      "run_id": "20260815T182438-WORDING-DISCOVERY-EN-001",
+      "rubric_version": "1.0.0",
+      "disposition": "non-release protocol preflight",
+      "reason": "The prompt lacked the amended explicit output-language control."
+    },
+    {
+      "run_id": "20260815T182458-STDIO-EN-PAIR-001",
+      "rubric_version": "1.0.0",
+      "disposition": "invalid bilingual comparison",
+      "reason": "The English prompt did not explicitly require English, so ambient Chinese guidance made semantic parity ambiguous."
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "20260815T183509-CANARY-DISCOVERY-001",
+      "scenario_id": "CANARY-DISCOVERY-001",
+      "scenario_revision": 1,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-CANARY-DISCOVERY-001-R1",
+      "output_projection_path": "outputs/20260815T183509-CANARY-DISCOVERY-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-entrypoint-loaded": "pass",
+        "positive-discovery": "pass"
+      },
+      "evidence_references": ["DOGFOOD-CANARY-DISCOVERY-001-R1", "outputs/20260815T183509-CANARY-DISCOVERY-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective command-trace check plus review of the projected final answer against rubric 1.1.0.",
+      "model_assisted_assessment": true,
+      "residuals": ["One nonfatal skill-description truncation diagnostic was emitted; discovery and direct entrypoint loading still completed."]
+    },
+    {
+      "run_id": "20260815T183700-STDIO-ZH-001",
+      "scenario_id": "STDIO-ZH-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-STDIO-ZH-001-R2",
+      "output_projection_path": "outputs/20260815T183700-STDIO-ZH-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "revision-selection": "pass",
+        "stdio-http-na": "pass",
+        "stdio-owner-precision": "pass",
+        "evidence-ceiling": "pass"
+      },
+      "evidence_references": ["DOGFOOD-STDIO-ZH-001-R2", "outputs/20260815T183700-STDIO-ZH-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus qualitative comparison to the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["Source-only audit; parent-host launch and runtime behavior remain unverified."]
+    },
+    {
+      "run_id": "20260815T184022-HTTP-HIST-EN-001",
+      "scenario_id": "HTTP-HIST-EN-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-HTTP-HIST-EN-001-R2",
+      "output_projection_path": "outputs/20260815T184022-HTTP-HIST-EN-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "historical-revision": "pass",
+        "revision-independent-defect": "pass",
+        "evidence-ceiling": "pass"
+      },
+      "evidence_references": ["DOGFOOD-HTTP-HIST-EN-001-R2", "outputs/20260815T184022-HTTP-HIST-EN-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus qualitative comparison to the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["Function-level reproduction does not establish an HTTP listener or deployed wire behavior."]
+    },
+    {
+      "run_id": "20260815T184417-UPGRADE-ZH-001",
+      "scenario_id": "UPGRADE-ZH-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-UPGRADE-ZH-001-R2",
+      "output_projection_path": "outputs/20260815T184417-UPGRADE-ZH-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "dual-profile-migration": "pass",
+        "removed-feature-absence": "pass",
+        "evidence-ceiling": "pass"
+      },
+      "evidence_references": ["DOGFOOD-UPGRADE-ZH-001-R2", "outputs/20260815T184417-UPGRADE-ZH-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus qualitative comparison to the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["The fixture exposes direct Python functions but no real HTTP route or deployment boundary."]
+    },
+    {
+      "run_id": "20260815T184809-MCP-APP-EN-001",
+      "scenario_id": "MCP-APP-EN-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-MCP-APP-EN-001-R2",
+      "output_projection_path": "outputs/20260815T184809-MCP-APP-EN-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "app-projection-separation": "pass",
+        "dated-integration-boundary": "pass",
+        "evidence-ceiling": "pass"
+      },
+      "evidence_references": ["DOGFOOD-MCP-APP-EN-001-R2", "outputs/20260815T184809-MCP-APP-EN-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus qualitative comparison to the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["Offline source review; browser, host, and current integration compatibility remain unverified."]
+    },
+    {
+      "run_id": "20260815T185218-GOOD-ZH-001",
+      "scenario_id": "GOOD-ZH-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-GOOD-ZH-001-R2",
+      "output_projection_path": "outputs/20260815T185218-GOOD-ZH-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "no-invented-findings": "pass",
+        "mixed-evidence-status": "pass",
+        "evidence-ceiling": "pass"
+      },
+      "evidence_references": ["DOGFOOD-GOOD-ZH-001-R2", "outputs/20260815T185218-GOOD-ZH-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus qualitative comparison to the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["Runtime and deployment controls remain unknown because the fixture has no runnable transport boundary."]
+    },
+    {
+      "run_id": "20260815T185516-SSE-LIGHT-EN-001",
+      "scenario_id": "SSE-LIGHT-EN-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-SSE-LIGHT-EN-001-R2",
+      "output_projection_path": "outputs/20260815T185516-SSE-LIGHT-EN-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "internal-proportionality": "pass"
+      },
+      "evidence_references": ["DOGFOOD-SSE-LIGHT-EN-001-R2", "outputs/20260815T185516-SSE-LIGHT-EN-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace, language, and sentence-count checks plus qualitative comparison to the preregistered expected decision.",
+      "model_assisted_assessment": true,
+      "residuals": ["Command traces prove bundled-reference reads but not a fresh SKILL.md read in this task."]
+    },
+    {
+      "run_id": "20260815T185541-WORDING-DISCOVERY-EN-001",
+      "scenario_id": "WORDING-DISCOVERY-EN-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-WORDING-DISCOVERY-EN-001-R2",
+      "output_projection_path": "outputs/20260815T185541-WORDING-DISCOVERY-EN-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "output-language-match": "pass",
+        "discovery-precision": "pass",
+        "internal-proportionality": "pass"
+      },
+      "evidence_references": ["DOGFOOD-WORDING-DISCOVERY-EN-001-R2", "outputs/20260815T185541-WORDING-DISCOVERY-EN-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective no-load trace and language checks plus qualitative comparison to the preregistered expected decision.",
+      "model_assisted_assessment": true,
+      "residuals": ["No-load evidence is bounded to observable command traces while skill descriptions remained ambient."]
+    },
+    {
+      "run_id": "20260815T185600-STDIO-EN-PAIR-001",
+      "scenario_id": "STDIO-EN-PAIR-001",
+      "scenario_revision": 2,
+      "skill_version": "0.1.0",
+      "receipt_id": "DOGFOOD-STDIO-EN-PAIR-001-R2",
+      "output_projection_path": "outputs/20260815T185600-STDIO-EN-PAIR-001.md",
+      "run_validity": "valid-completed",
+      "counts_for_release": true,
+      "rubric_outcomes": {
+        "skill-material-loaded": "pass",
+        "output-language-match": "pass",
+        "revision-selection": "pass",
+        "stdio-http-na": "pass",
+        "stdio-owner-precision": "pass",
+        "evidence-ceiling": "pass",
+        "bilingual-semantic-parity": "pass"
+      },
+      "evidence_references": ["DOGFOOD-STDIO-EN-PAIR-001-R2", "outputs/20260815T185600-STDIO-EN-PAIR-001.md", "outputs/20260815T183700-STDIO-ZH-001.md"],
+      "assessment_owner": "IndelibleVivi same-owner evaluation workflow",
+      "assessment_method": "Objective trace and language checks plus paired semantic comparison against STDIO-ZH-001 and the preregistered expected decisions.",
+      "model_assisted_assessment": true,
+      "residuals": ["Bilingual parity is same-owner, model-assisted qualitative adjudication rather than independent measurement."]
+    }
+  ]
+}

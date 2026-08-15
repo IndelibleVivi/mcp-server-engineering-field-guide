@@ -1,0 +1,1 @@
+Audit the synthetic MCP server in this repository against the protocol revision it declares. This is a read-only task: identify the applicable protocol/reference layers, the transport boundary, and the evidence ceiling. Keep the report concise and do not modify files.

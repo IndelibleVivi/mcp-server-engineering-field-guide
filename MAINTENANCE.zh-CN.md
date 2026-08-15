@@ -37,17 +37,24 @@ Guide、protocol profiles、moving integration guidance、case-study receipts �
 - 同时运行 official skill validator 与 repository-local structural validator。
 - Material workflow change 应在 pinned public 或 synthetic server 上 forward-test，不能暴露 private source。
 
+## External review handoff
+
+- 优先传递 public repository URL 与 full commit hash，不把 ZIP attachment 作为默认路径。
+- 必须使用 archive 时，在传输前运行 `scan_review_bundle.py`，并要求 reviewer 在 ingestion 后重新检查 strict UTF-8、`U+FFFD`、inventory 与 manifest。
+- Read-only sandbox 只能防止 mutation，不能证明 evaluation agent 无法读取 oracle。每次只把当前 fixture、prompt 与 fixture-local metadata 物化到独立 temporary repository。
+- 若传输改变 bytes，立即停止 exact-code claims，改从 pinned public commit 或经过验证的 strict-UTF-8 text bundle 恢复；损坏 artifact 只作为 transfer evidence 保留。
+
 ## Release checks
 
 运行：
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 python3 skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tests
+PYTHONDONTWRITEBYTECODE=1 python3 skill/mcp-server-engineering/scripts/check_python_syntax.py skill/mcp-server-engineering/scripts tools tests
 PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -v
 python3 skill/mcp-server-engineering/scripts/validate_version_register.py VERSION-REGISTER.json
 python3 skill/mcp-server-engineering/scripts/sync_profile_mirrors.py --check VERSION-REGISTER.json
 python3 skill/mcp-server-engineering/scripts/check_bilingual_coverage.py .
-python3 skill/mcp-server-engineering/scripts/check_receipt_schema.py case-studies/gpt-thinking-block-mcp/receipts/*.json
+python3 tools/validate_evaluation_corpus.py .
 python3 skill/mcp-server-engineering/scripts/validate_skill_package.py skill/mcp-server-engineering
 python3 skill/mcp-server-engineering/scripts/check_markdown_links.py .
 python3 skill/mcp-server-engineering/scripts/scan_review_bundle.py .

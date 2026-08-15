@@ -1,0 +1,1 @@
+Explicitly use `$mcp-server-engineering` for a read-only audit of this synthetic, already-hardened MCP server. Do not manufacture findings to appear strict; distinguish source-verifiable, runtime-unknown, and `not applicable` conclusions while respecting the current evidence ceiling. Do not modify files. Write the final answer in English.
