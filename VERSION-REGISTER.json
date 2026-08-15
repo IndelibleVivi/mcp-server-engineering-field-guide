@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "guide_version": "2.0.0-draft.1",
+  "guide_version": "2.0.0",
   "stable_core_version": 2,
   "skill_version": "0.1.0",
   "profile_set_version": 1,
-  "recorded_at": "2026-08-15",
+  "recorded_at": "2026-08-16",
   "skill_package": {
     "path": "skill/mcp-server-engineering",
     "entrypoint": "skill/mcp-server-engineering/SKILL.md"
@@ -168,11 +168,13 @@
     }
   ],
   "publication": {
-    "remote_configured": false,
-    "published": false,
+    "remote_configured": true,
+    "published": true,
     "license_selected": true,
     "documentation_license": "CC-BY-4.0",
     "skill_and_code_license": "Apache-2.0",
-    "bilingual_sync_status": "draft-peers-present"
+    "bilingual_sync_status": "verified-2026-08-16",
+    "repository_url": "https://github.com/IndelibleVivi/mcp-server-engineering-field-guide",
+    "published_at": "2026-08-16"
   }
 }

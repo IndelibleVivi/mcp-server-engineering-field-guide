@@ -1,6 +1,6 @@
 # MCP Server Engineering Field Guide
 
-Version: `2.0.0-draft.1`<br>
+Version: `2.0.0`<br>
 Stable core: `2`<br>
 Language peer: [中文](FIELD-GUIDE.zh-CN.md)<br>
 Revision authority: [VERSION-REGISTER.json](VERSION-REGISTER.json)

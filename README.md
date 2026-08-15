@@ -32,13 +32,13 @@ guide release
     └── case-study evidence receipts
 ```
 
-The current draft covers MCP `2025-06-18`, `2025-11-25`, and `2026-07-28`, plus JSON-RPC 2.0 and HTTP RFC 9110/9112. An older server is reviewed against the revision it declares; a new design should consult the latest supported official profile. See [VERSION-REGISTER.json](VERSION-REGISTER.json).
+Release `2.0.0` covers MCP `2025-06-18`, `2025-11-25`, and `2026-07-28`, plus JSON-RPC 2.0 and HTTP RFC 9110/9112. An older server is reviewed against the revision it declares; a new design should consult the latest supported official profile. See [VERSION-REGISTER.json](VERSION-REGISTER.json).
 
 English and Simplified Chinese documents are maintained as semantic peers. They share the same version, section identifiers, profile IDs, claim IDs, receipt IDs, and evidence status. English protocol keywords and identifiers remain canonical in both languages.
 
 ## Publication status
 
-This is a public-safe release candidate. Publication state is recorded in [VERSION-REGISTER.json](VERSION-REGISTER.json).
+Release `2.0.0` is published at [IndelibleVivi/mcp-server-engineering-field-guide](https://github.com/IndelibleVivi/mcp-server-engineering-field-guide). Publication state is recorded in [VERSION-REGISTER.json](VERSION-REGISTER.json).
 
 The guide, profiles, case studies, and evidence prose are licensed under [CC BY 4.0](LICENSES/CC-BY-4.0.txt). The distributable skill, scripts, templates, and machine-readable project files are licensed under [Apache-2.0](LICENSES/Apache-2.0.txt). See [LICENSING.md](LICENSING.md) for the exact file boundary. No license is inherited from a case-study repository.
 

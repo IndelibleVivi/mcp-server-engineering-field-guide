@@ -32,13 +32,13 @@ guide release
     └── case-study evidence receipts
 ```
 
-当前 draft 覆盖 MCP `2025-06-18`、`2025-11-25`、`2026-07-28`，以及 JSON-RPC 2.0 与 HTTP RFC 9110/9112。审查旧 server 时，依据它声明的 revision；设计新 server 时，查询当前支持的最新 official profile。详见 [VERSION-REGISTER.json](VERSION-REGISTER.json)。
+Release `2.0.0` 覆盖 MCP `2025-06-18`、`2025-11-25`、`2026-07-28`，以及 JSON-RPC 2.0 与 HTTP RFC 9110/9112。审查旧 server 时，依据它声明的 revision；设计新 server 时，查询当前支持的最新 official profile。详见 [VERSION-REGISTER.json](VERSION-REGISTER.json)。
 
 English 与简体中文文档作为 semantic peers 维护：version、section identifiers、profile IDs、claim IDs、receipt IDs 与 evidence status 一致；English protocol keywords 与 identifiers 在两种语言中都保持 canonical。
 
 ## Publication status
 
-这里是 public-safe release candidate；publication state 记录在 [VERSION-REGISTER.json](VERSION-REGISTER.json)。
+Release `2.0.0` 已发布到 [IndelibleVivi/mcp-server-engineering-field-guide](https://github.com/IndelibleVivi/mcp-server-engineering-field-guide)；publication state 记录在 [VERSION-REGISTER.json](VERSION-REGISTER.json)。
 
 Guide、profiles、case studies 与 evidence prose 使用 [CC BY 4.0](LICENSES/CC-BY-4.0.txt)；可分发 skill、scripts、templates 与 machine-readable project files 使用 [Apache-2.0](LICENSES/Apache-2.0.txt)。确切 file boundary 见 [LICENSING.md](LICENSING.md)。任何 license 都不是从 case-study repository 继承而来。
 
