@@ -1,0 +1,136 @@
+{
+  "schema_version": 2,
+  "receipt_set_id": "MCP-SERVER-WIRE-2026-08-15",
+  "claim_id": "CLM-MCP-SERVER-WIRE-BOUNDARIES",
+  "status": "reproduced",
+  "executed_at": "2026-08-15T23:15:35+08:00",
+  "recorded_at": "2026-08-15T23:15:35+08:00",
+  "execution_owner_class": "project-local development execution",
+  "owner_relationship": "same-owner",
+  "independence_basis": "The project owner repeated the wire probes; this receipt set does not claim independent assurance.",
+  "independent_execution": false,
+  "representation": "projected",
+  "source": {
+    "repository": "https://github.com/IndelibleVivi/gpt-thinking-block-mcp",
+    "identity": {
+      "type": "git-sha1",
+      "value": "ec1379aa141a02a150ef7ce82ea4f5e92f55c72b"
+    }
+  },
+  "environment": {
+    "python_implementation": "CPython",
+    "python_version": "3.13.3",
+    "operating_system": "macOS 26.5.2",
+    "architecture": "arm64"
+  },
+  "command_or_probe": [
+    "python3",
+    "evidence/run_wire_probes.py"
+  ],
+  "parameters": {
+    "probe_count": 4
+  },
+  "expected": {
+    "all_probes_complete": true,
+    "process_exit_code": 0
+  },
+  "observed": {
+    "all_probes_complete": true,
+    "probe_count": 4
+  },
+  "exit_code": 0,
+  "probes": [
+    {
+      "receipt_id": "WIRE-HDR-001",
+      "claim_id": "CLM-WIRE-HDR-001",
+      "probe_method": "Send an incomplete request header one byte at a time at intervals shorter than the configured socket timeout, then observe handler liveness beyond that timeout.",
+      "claim": "A renewable socket idle timeout does not form an absolute header-completion deadline in the tested inherited parser.",
+      "parameters": {
+        "configured_socket_timeout_seconds": 0.3,
+        "trickle_interval_seconds": 0.05,
+        "bytes_trickled_after_prefix": 22
+      },
+      "observed": {
+        "elapsed_seconds": 1.189,
+        "send_failed_before_observation": false,
+        "handler_thread_alive": true,
+        "threads_before": 2,
+        "threads_while_pending": 3
+      },
+      "expected": {
+        "handler_alive_beyond_configured_idle_timeout": true
+      },
+      "residual_boundary": "This proves only the tested runtime behavior; it does not establish an unbounded maximum under every scheduler."
+    },
+    {
+      "receipt_id": "WIRE-ADMISSION-001",
+      "claim_id": "CLM-WIRE-ADMISSION-001",
+      "probe_method": "Open twelve concurrent connections with incomplete headers and compare process thread counts before capability admission.",
+      "claim": "The tested ThreadingHTTPServer path has no bounded worker admission before header completion.",
+      "parameters": {
+        "incomplete_header_connections": 12
+      },
+      "observed": {
+        "threads_before": 2,
+        "threads_while_incomplete": 14,
+        "thread_delta": 12,
+        "capability_limiter_reached": false
+      },
+      "expected": {
+        "thread_delta": 12,
+        "capability_limiter_reached": false
+      },
+      "residual_boundary": "The exact scheduling and thread baseline are environment-specific; the observed one-handler-thread-per-incomplete-connection relationship is the relevant result."
+    },
+    {
+      "receipt_id": "WIRE-EXPECT-001",
+      "claim_id": "CLM-WIRE-EXPECT-001",
+      "probe_method": "Send an Origin-denied request with Expect: 100-continue and record the wire status sequence.",
+      "claim": "Inherited Expect handling sends an interim response before application Origin denial.",
+      "parameters": {
+        "expect_header": "100-continue",
+        "origin_policy": "deny supplied Origin"
+      },
+      "observed": {
+        "status_sequence": [
+          "HTTP/1.1 100 Continue",
+          "HTTP/1.1 403 Forbidden"
+        ],
+        "origin_denial_body_present": true,
+        "traceback_present": false
+      },
+      "expected": {
+        "status_sequence": [
+          "HTTP/1.1 100 Continue",
+          "HTTP/1.1 403 Forbidden"
+        ]
+      },
+      "residual_boundary": "This is an ordering and resource-consumption observation, not evidence of capability execution."
+    },
+    {
+      "receipt_id": "WIRE-DISCONNECT-001",
+      "claim_id": "CLM-WIRE-DISCONNECT-001",
+      "probe_method": "Close twelve incomplete-header client connections and inspect server stderr for framework-level BrokenPipeError tracebacks.",
+      "claim": "Closing incomplete-header clients can lead to response-write BrokenPipeError tracebacks in the tested inherited threaded-server path.",
+      "parameters": {
+        "connections_closed": 12
+      },
+      "observed": {
+        "traceback_present": true,
+        "broken_pipe_error_present": true,
+        "broken_pipe_count_in_run": 11
+      },
+      "expected": {
+        "traceback_present": true,
+        "broken_pipe_error_present": true
+      },
+      "residual_boundary": "The exact count is scheduling-dependent. The stable observation is that ordinary remote disconnects can reach the framework error handler and emit full tracebacks."
+    }
+  ],
+  "raw_material": {
+    "included": false,
+    "location": null,
+    "omitted_material": "Raw socket transcripts, raw stderr, and local filesystem context are not included in this public projection."
+  },
+  "residual_boundary": "Bounded local-process probes. They do not prove behavior behind a real proxy, inside Docker, on other Python versions, or under sustained hostile scheduling."
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 2,
+  "receipt_id": "CI-EC1379A-001",
+  "claim_id": "CLM-CI-EC1379A-001",
+  "status": "reproduced",
+  "executed_at": "2026-08-15T23:16:09+08:00",
+  "recorded_at": "2026-08-15T23:16:23+08:00",
+  "execution_owner_class": "project-local development execution",
+  "owner_relationship": "same-owner",
+  "independence_basis": "The project owner repeated the test execution; this receipt does not claim independent assurance.",
+  "independent_execution": false,
+  "representation": "projected",
+  "source": {
+    "repository": "https://github.com/IndelibleVivi/gpt-thinking-block-mcp",
+    "identity": {
+      "type": "git-sha1",
+      "value": "ec1379aa141a02a150ef7ce82ea4f5e92f55c72b"
+    }
+  },
+  "environment": {
+    "python_implementation": "CPython",
+    "python_version": "3.13.3",
+    "operating_system": "macOS 26.5.2",
+    "architecture": "arm64"
+  },
+  "command_or_probe": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-v"
+  ],
+  "parameters": {},
+  "expected": {
+    "exit_code": 0,
+    "tests_reported": 60,
+    "success_marker": "OK"
+  },
+  "observed": {
+    "elapsed_seconds": 13.442,
+    "exit_code": 0,
+    "tests_reported": 60,
+    "success_marker": "OK"
+  },
+  "exit_code": 0,
+  "raw_material": {
+    "included": false,
+    "location": null,
+    "omitted_material": "Raw local test output and local filesystem context are not included in this public projection."
+  },
+  "related_public_ci": "https://github.com/IndelibleVivi/gpt-thinking-block-mcp/actions/runs/31888232847",
+  "residual_boundary": "Local test execution. It does not independently reproduce the public CI run, raw wire probes, container behavior, reverse-proxy behavior, or host acceptance."
+}

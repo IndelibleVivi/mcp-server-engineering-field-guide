@@ -1,0 +1,42 @@
+{
+  "schema_version": 2,
+  "receipt_id": "RECEIPT-ID",
+  "claim_id": "CLAIM-ID",
+  "status": "reproduced",
+  "executed_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "execution_owner_class": "project-local execution",
+  "owner_relationship": "same-owner",
+  "independence_basis": "The project owner repeated the execution; this is not independent assurance.",
+  "independent_execution": false,
+  "representation": "projected",
+  "source": {
+    "repository": "SOURCE-URL-OR-ID",
+    "identity": {
+      "type": "git-sha1",
+      "value": "FULL-LOWERCASE-40-HEX-GIT-SHA1"
+    }
+  },
+  "environment": {
+    "runtime": "RUNTIME-AND-VERSION",
+    "operating_system": "OS-AND-VERSION",
+    "architecture": "ARCHITECTURE"
+  },
+  "command_or_probe": [
+    "COMMAND",
+    "ARGUMENT"
+  ],
+  "parameters": {},
+  "expected": {
+    "observable": "EXPECTED-RESULT"
+  },
+  "observed": {
+    "observable": "OBSERVED-RESULT"
+  },
+  "exit_code": 0,
+  "raw_material": {
+    "included": false,
+    "location": null,
+    "omitted_material": "RAW-OUTPUT-OR-PRIVATE-MATERIAL-OMITTED-FROM-THIS-REPRESENTATION"
+  },
+  "residual_boundary": "STATE-WHAT-THIS-DOES-NOT-PROVE"
+}

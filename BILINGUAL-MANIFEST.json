@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "pairs": [
+    {"id": "readme", "en": "README.md", "zh-CN": "README.zh-CN.md"},
+    {"id": "field-guide", "en": "FIELD-GUIDE.md", "zh-CN": "FIELD-GUIDE.zh-CN.md"},
+    {"id": "changelog", "en": "CHANGELOG.md", "zh-CN": "CHANGELOG.zh-CN.md"},
+    {"id": "maintenance", "en": "MAINTENANCE.md", "zh-CN": "MAINTENANCE.zh-CN.md"},
+    {"id": "profiles-readme", "en": "profiles/README.md", "zh-CN": "profiles/README.zh-CN.md"},
+    {"id": "profile-mcp-2025-06-18", "en": "profiles/mcp-2025-06-18.md", "zh-CN": "profiles/mcp-2025-06-18.zh-CN.md"},
+    {"id": "profile-mcp-2025-11-25", "en": "profiles/mcp-2025-11-25.md", "zh-CN": "profiles/mcp-2025-11-25.zh-CN.md"},
+    {"id": "profile-mcp-2026-07-28", "en": "profiles/mcp-2026-07-28.md", "zh-CN": "profiles/mcp-2026-07-28.zh-CN.md"},
+    {"id": "profile-json-rpc-2.0", "en": "profiles/json-rpc-2.0.md", "zh-CN": "profiles/json-rpc-2.0.zh-CN.md"},
+    {"id": "profile-http-rfc9110-rfc9112", "en": "profiles/http-rfc9110-rfc9112.md", "zh-CN": "profiles/http-rfc9110-rfc9112.zh-CN.md"},
+    {"id": "profile-integration-guidance-2026-08-15", "en": "profiles/integration-guidance-2026-08-15.md", "zh-CN": "profiles/integration-guidance-2026-08-15.zh-CN.md"},
+    {"id": "case-study", "en": "case-studies/gpt-thinking-block-mcp/CASE-STUDY.md", "zh-CN": "case-studies/gpt-thinking-block-mcp/CASE-STUDY.zh-CN.md"},
+    {"id": "case-review-reconciliation", "en": "case-studies/gpt-thinking-block-mcp/REVIEW-RECONCILIATION.md", "zh-CN": "case-studies/gpt-thinking-block-mcp/REVIEW-RECONCILIATION.zh-CN.md"},
+    {"id": "case-test-matrix", "en": "case-studies/gpt-thinking-block-mcp/TEST-MATRIX.md", "zh-CN": "case-studies/gpt-thinking-block-mcp/TEST-MATRIX.zh-CN.md"},
+    {"id": "case-public-evidence-index", "en": "case-studies/gpt-thinking-block-mcp/PUBLIC-EVIDENCE-INDEX.md", "zh-CN": "case-studies/gpt-thinking-block-mcp/PUBLIC-EVIDENCE-INDEX.zh-CN.md"},
+    {"id": "template-claim-ledger", "en": "skill/mcp-server-engineering/assets/templates/claim-ledger.md", "zh-CN": "skill/mcp-server-engineering/assets/templates/claim-ledger.zh-CN.md"},
+    {"id": "template-finding", "en": "skill/mcp-server-engineering/assets/templates/finding.md", "zh-CN": "skill/mcp-server-engineering/assets/templates/finding.zh-CN.md"},
+    {"id": "template-test-matrix", "en": "skill/mcp-server-engineering/assets/templates/test-matrix.md", "zh-CN": "skill/mcp-server-engineering/assets/templates/test-matrix.zh-CN.md"},
+    {"id": "template-threat-model", "en": "skill/mcp-server-engineering/assets/templates/threat-model.md", "zh-CN": "skill/mcp-server-engineering/assets/templates/threat-model.zh-CN.md"},
+    {"id": "template-upgrade-retirement-inventory", "en": "skill/mcp-server-engineering/assets/templates/upgrade-retirement-inventory.md", "zh-CN": "skill/mcp-server-engineering/assets/templates/upgrade-retirement-inventory.zh-CN.md"},
+    {"id": "skill-profile-mcp-2025-06-18", "en": "skill/mcp-server-engineering/references/mcp-2025-06-18.md", "zh-CN": "skill/mcp-server-engineering/references/mcp-2025-06-18.zh-CN.md"},
+    {"id": "skill-profile-mcp-2025-11-25", "en": "skill/mcp-server-engineering/references/mcp-2025-11-25.md", "zh-CN": "skill/mcp-server-engineering/references/mcp-2025-11-25.zh-CN.md"},
+    {"id": "skill-profile-mcp-2026-07-28", "en": "skill/mcp-server-engineering/references/mcp-2026-07-28.md", "zh-CN": "skill/mcp-server-engineering/references/mcp-2026-07-28.zh-CN.md"},
+    {"id": "skill-profile-json-rpc-2.0", "en": "skill/mcp-server-engineering/references/json-rpc-2.0.md", "zh-CN": "skill/mcp-server-engineering/references/json-rpc-2.0.zh-CN.md"},
+    {"id": "skill-profile-http-rfc9110-rfc9112", "en": "skill/mcp-server-engineering/references/http-rfc9110-rfc9112.md", "zh-CN": "skill/mcp-server-engineering/references/http-rfc9110-rfc9112.zh-CN.md"},
+    {"id": "skill-profile-integration-guidance-2026-08-15", "en": "skill/mcp-server-engineering/references/integration-guidance-2026-08-15.md", "zh-CN": "skill/mcp-server-engineering/references/integration-guidance-2026-08-15.zh-CN.md"}
+  ]
+}

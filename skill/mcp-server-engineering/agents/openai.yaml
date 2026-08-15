@@ -1,0 +1,4 @@
+interface:
+  display_name: "MCP Server Engineering"
+  short_description: "Design and audit revision-aware MCP servers"
+  default_prompt: "Use $mcp-server-engineering to audit this MCP server against its declared protocol revision, capability contract, transport behavior, and deployment boundary, then report evidence and residual unknowns in my language."

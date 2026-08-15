@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "guide_version": "2.0.0-draft.1",
+  "stable_core_version": 2,
+  "skill_version": "0.1.0",
+  "profile_set_version": 1,
+  "recorded_at": "2026-08-15",
+  "skill_package": {
+    "path": "skill/mcp-server-engineering",
+    "entrypoint": "skill/mcp-server-engineering/SKILL.md"
+  },
+  "bilingual_manifest": "BILINGUAL-MANIFEST.json",
+  "locales": [
+    "en",
+    "zh-CN"
+  ],
+  "language_peers": {
+    "readme": {
+      "en": "README.md",
+      "zh-CN": "README.zh-CN.md"
+    },
+    "field_guide": {
+      "en": "FIELD-GUIDE.md",
+      "zh-CN": "FIELD-GUIDE.zh-CN.md"
+    },
+    "changelog": {
+      "en": "CHANGELOG.md",
+      "zh-CN": "CHANGELOG.zh-CN.md"
+    },
+    "maintenance": {
+      "en": "MAINTENANCE.md",
+      "zh-CN": "MAINTENANCE.zh-CN.md"
+    }
+  },
+  "normative_profiles": [
+    {
+      "id": "mcp-2025-06-18",
+      "kind": "mcp",
+      "version": "2025-06-18",
+      "status": "historical-supported",
+      "paths": {
+        "en": "profiles/mcp-2025-06-18.md",
+        "zh-CN": "profiles/mcp-2025-06-18.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/mcp-2025-06-18.md",
+        "zh-CN": "skill/mcp-server-engineering/references/mcp-2025-06-18.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "f2e59ad24eb51df392340d7f1e88b7a01a6a25a967e52d54563e382f2cf68b5a",
+        "zh-CN": "8fa8c1a82e425ca94f53d8a4f777b09236dfd85aa57ec97895ee55d08db6ff5e"
+      },
+      "source": "https://modelcontextprotocol.io/specification/2025-06-18"
+    },
+    {
+      "id": "mcp-2025-11-25",
+      "kind": "mcp",
+      "version": "2025-11-25",
+      "status": "historical-supported",
+      "paths": {
+        "en": "profiles/mcp-2025-11-25.md",
+        "zh-CN": "profiles/mcp-2025-11-25.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/mcp-2025-11-25.md",
+        "zh-CN": "skill/mcp-server-engineering/references/mcp-2025-11-25.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "ec024345678601db437ea981a32713623a41f53f505fcd0fd7292c4849068b45",
+        "zh-CN": "e059caed3ca14d5a04612ba2a90b296f280ddb4450df32b1dc781f6d75cda180"
+      },
+      "source": "https://modelcontextprotocol.io/specification/2025-11-25"
+    },
+    {
+      "id": "mcp-2026-07-28",
+      "kind": "mcp",
+      "version": "2026-07-28",
+      "status": "current-as-assessed",
+      "paths": {
+        "en": "profiles/mcp-2026-07-28.md",
+        "zh-CN": "profiles/mcp-2026-07-28.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/mcp-2026-07-28.md",
+        "zh-CN": "skill/mcp-server-engineering/references/mcp-2026-07-28.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "6386172e126d096cc68d2d3c5090500fe5c7f831a8399a4ca1d1d75ec412f8ac",
+        "zh-CN": "c379cfe4fbf5e47de8945c2700621df0012a718df770d24af647edcde5592db8"
+      },
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28"
+    },
+    {
+      "id": "json-rpc-2.0",
+      "kind": "json-rpc",
+      "version": "2.0",
+      "status": "normative",
+      "paths": {
+        "en": "profiles/json-rpc-2.0.md",
+        "zh-CN": "profiles/json-rpc-2.0.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/json-rpc-2.0.md",
+        "zh-CN": "skill/mcp-server-engineering/references/json-rpc-2.0.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "eb92caa9e7e8414a3351015d67b13a0f22dd54337c2f22e7360469aef89ec86f",
+        "zh-CN": "2e0fb18494d9de1432b29716332d111213a164c30cb6afaa589c95103bae06ad"
+      },
+      "source": "https://www.jsonrpc.org/specification"
+    },
+    {
+      "id": "http-rfc9110-rfc9112",
+      "kind": "http",
+      "version": "RFC 9110 / RFC 9112",
+      "status": "normative",
+      "paths": {
+        "en": "profiles/http-rfc9110-rfc9112.md",
+        "zh-CN": "profiles/http-rfc9110-rfc9112.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/http-rfc9110-rfc9112.md",
+        "zh-CN": "skill/mcp-server-engineering/references/http-rfc9110-rfc9112.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "1859674b4d2a22d9cb4becfc4df0a011c2f0865fd4a5f0f262a5756090adf349",
+        "zh-CN": "a94c0a2e9e77d2d2c55f129f1ad8e2b56148afb34c6e267871a41387d043fe06"
+      },
+      "source": "https://www.rfc-editor.org/rfc/rfc9112.html"
+    }
+  ],
+  "moving_integration_guidance": [
+    {
+      "id": "mcp-apps-and-openai-hosts-2026-08-15",
+      "assessed_at": "2026-08-15",
+      "status": "moving-guidance",
+      "paths": {
+        "en": "profiles/integration-guidance-2026-08-15.md",
+        "zh-CN": "profiles/integration-guidance-2026-08-15.zh-CN.md"
+      },
+      "skill_paths": {
+        "en": "skill/mcp-server-engineering/references/integration-guidance-2026-08-15.md",
+        "zh-CN": "skill/mcp-server-engineering/references/integration-guidance-2026-08-15.zh-CN.md"
+      },
+      "content_sha256": {
+        "en": "90ea697d33437040e478e3b6b87f9764c86fed3a15ce866db8c3d99b18c8fa12",
+        "zh-CN": "e445a574befbed312517fdf1a6106c2b0976b63653b8cecf3f4717cf894bd717"
+      },
+      "sources": [
+        "https://modelcontextprotocol.io/extensions/apps/overview",
+        "https://developers.openai.com/plugins/build/chatgpt-ui",
+        "https://developers.openai.com/plugins/build/auth",
+        "https://developers.openai.com/api/docs/guides/secure-mcp-tunnels"
+      ]
+    }
+  ],
+  "case_studies": [
+    {
+      "id": "gpt-thinking-block-mcp",
+      "paths": {
+        "en": "case-studies/gpt-thinking-block-mcp/CASE-STUDY.md",
+        "zh-CN": "case-studies/gpt-thinking-block-mcp/CASE-STUDY.zh-CN.md"
+      },
+      "evidence_indexes": {
+        "en": "case-studies/gpt-thinking-block-mcp/PUBLIC-EVIDENCE-INDEX.md",
+        "zh-CN": "case-studies/gpt-thinking-block-mcp/PUBLIC-EVIDENCE-INDEX.zh-CN.md"
+      }
+    }
+  ],
+  "publication": {
+    "remote_configured": false,
+    "published": false,
+    "license_selected": true,
+    "documentation_license": "CC-BY-4.0",
+    "skill_and_code_license": "Apache-2.0",
+    "bilingual_sync_status": "draft-peers-present"
+  }
+}
