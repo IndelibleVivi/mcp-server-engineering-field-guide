@@ -2,6 +2,7 @@
   "schema_version": 1,
   "pairs": [
     {"id": "readme", "en": "README.md", "zh-CN": "README.zh-CN.md"},
+    {"id": "architecture", "en": "ARCHITECTURE.md", "zh-CN": "ARCHITECTURE.zh-CN.md"},
     {"id": "field-guide", "en": "FIELD-GUIDE.md", "zh-CN": "FIELD-GUIDE.zh-CN.md"},
     {"id": "changelog", "en": "CHANGELOG.md", "zh-CN": "CHANGELOG.zh-CN.md"},
     {"id": "maintenance", "en": "MAINTENANCE.md", "zh-CN": "MAINTENANCE.zh-CN.md"},

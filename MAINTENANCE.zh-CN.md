@@ -37,6 +37,14 @@ Guide、protocol profiles、moving integration guidance、case-study receipts �
 - 同时运行 official skill validator 与 repository-local structural validator。
 - Material workflow change 应在 pinned public 或 synthetic server 上 forward-test，不能暴露 private source。
 
+## Architecture atlas updates
+
+- 把 `docs/architecture/architecture-model.json` 作为 regions、nodes、states、edges、unknowns、selected views 与 render contract 的 semantic authority。
+- English / 简体中文之间保持 stable `R/N/S/E/U` identities。Ownership、version、evidence status 或 feedback route 改变时，先改 model。
+- 新 reader job 使用新建的 native view；不能把 landscape canvas crop、rotate 或 splice 成 portrait detail page。
+- `.excalidraw` geometry 保持 editable，publication SVGs 保持成对；依次运行 `prepare_bilingual_architecture_scenes.py`、`layout_portrait_architecture_scenes.py` 与 `render_architecture_svgs.py`。
+- 在正常阅读尺度检查全部六张 SVG。Script 成功运行并不证明 legibility、connector routing 或 semantic completeness。
+
 ## External review handoff
 
 - 优先传递 public repository URL 与 full commit hash，不把 ZIP attachment 作为默认路径。

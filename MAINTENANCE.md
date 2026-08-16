@@ -37,6 +37,14 @@ The guide, protocol profiles, moving integration guidance, case-study receipts, 
 - Run the official skill validator and the repository-local structural validator.
 - Forward-test material workflow changes on a pinned public or synthetic server without exposing private source.
 
+## Architecture atlas updates
+
+- Treat `docs/architecture/architecture-model.json` as the semantic authority for regions, nodes, states, edges, unknowns, selected views, and the render contract.
+- Preserve stable `R/N/S/E/U` identities across English and Simplified Chinese. Update the model first when ownership, version, evidence status, or a feedback route changes.
+- Build a native view for a new reader job. Do not crop, rotate, or splice a landscape canvas into a portrait detail page.
+- Keep `.excalidraw` geometry editable and keep publication SVGs paired. Run `prepare_bilingual_architecture_scenes.py`, `layout_portrait_architecture_scenes.py`, and `render_architecture_svgs.py` in that order.
+- Inspect all six SVGs at normal reading scale. A successful script run does not establish legibility, correct connector routing, or semantic completeness.
+
 ## External review handoff
 
 - Prefer a public repository URL plus a full commit hash over a ZIP attachment.

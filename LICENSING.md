@@ -12,6 +12,7 @@ The following are licensed under the [Creative Commons Attribution 4.0 Internati
 - `FIELD-GUIDE.md` and `FIELD-GUIDE.zh-CN.md`;
 - `CHANGELOG.md`, `CHANGELOG.zh-CN.md`, `MAINTENANCE.md`, and `MAINTENANCE.zh-CN.md`;
 - `AUTHORS.md`, `ATTRIBUTION.md`, and this licensing explanation;
+- `ARCHITECTURE.md`, `ARCHITECTURE.zh-CN.md`, and everything under `docs/architecture/`, including the renderer-neutral model, editable Excalidraw sources, and publication SVGs;
 - all Markdown under `profiles/`;
 - all Markdown and public evidence receipts under `case-studies/`.
 - all Markdown prompts, reports, projected outputs, and JSON evidence receipts under `evaluations/**/receipts/`.
@@ -29,7 +30,8 @@ The following are licensed under the [Apache License 2.0](LICENSES/Apache-2.0.tx
 - everything under `skill/`;
 - `VERSION-REGISTER.json` and `BILINGUAL-MANIFEST.json`;
 - everything under `tests/` and `.github/`;
-- `evaluations/**/scenarios.json`, `evaluations/**/rubric.json`, `evaluations/**/results.json`, JSON schemas, synthetic fixture source files under `evaluations/**/fixtures/`, and everything under `tools/`;
+- everything under `tools/`, including the architecture rebuild pipeline;
+- `evaluations/**/scenarios.json`, `evaluations/**/rubric.json`, `evaluations/**/results.json`, JSON schemas, and synthetic fixture source files under `evaluations/**/fixtures/`;
 - validation or build scripts added at repository root in future;
 - `.gitignore`, `NOTICE`, and other machine-oriented configuration created for this repository.
 

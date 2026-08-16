@@ -29,6 +29,11 @@ Release `2.0.1` 通过 32 个 repository tests、portable-package / public-text 
 - [case studies](case-studies/)：以 public、pinned evidence 把通用方法锚定在真实 failure modes 上，并维护中英 semantic peers；
 - 可分发的 [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md)：只加载当前任务真正需要的 reference 的轻量 workflow controller。
 
+Bilingual [architecture atlas](ARCHITECTURE.zh-CN.md)（[English](ARCHITECTURE.md)）
+把这些 surfaces 与 external authority、target-system ownership、same-owner evaluation
+及 release maintenance 连接起来。它包含 renderer-neutral model、editable Excalidraw
+sources 与 publication SVGs，而不是把项目压平成一棵 directory tree。
+
 ## 从哪里开始
 
 - 设计新 server：先读 [Field Guide 第 1–4 节](FIELD-GUIDE.zh-CN.md#1-中央模型partially-ordered-capability-boundary)，再从 [VERSION-REGISTER.json](VERSION-REGISTER.json) 选择目标 profile。
@@ -36,6 +41,7 @@ Release `2.0.1` 通过 32 个 repository tests、portable-package / public-text 
 - 升级 protocol revision：对比 [profiles/](profiles/README.zh-CN.md) 中适用的文件，并让 historical tests 继续绑定其原始 revision。
 - 阅读起源实现：使用已去除私人工作痕迹的 [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.zh-CN.md)。
 - 运行 agent workflow：调用 [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md) 中打包的 skill。
+- 阅读完整 ownership / feedback topology：使用 [architecture atlas](ARCHITECTURE.zh-CN.md) 与其中三组 bilingual diagram pairs。
 - 维护或发布 reference：遵循 [maintenance workflow](MAINTENANCE.zh-CN.md) 与 [changelog](CHANGELOG.zh-CN.md)。
 
 ## Version model

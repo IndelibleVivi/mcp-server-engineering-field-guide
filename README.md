@@ -29,6 +29,12 @@ The project separates four things that age at different rates:
 - [case studies](case-studies/): public, pinned evidence that keeps the general method grounded in real failures, with English and Simplified Chinese peers;
 - a distributable [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md): a thin workflow controller that loads only the relevant references.
 
+The bilingual [architecture atlas](ARCHITECTURE.md) ([简体中文](ARCHITECTURE.zh-CN.md))
+connects those surfaces to external authority, target-system ownership,
+same-owner evaluation, and release maintenance. It includes a renderer-neutral
+model, editable Excalidraw sources, and publication SVGs rather than flattening
+the project into a directory tree.
+
 ## Start here
 
 - Designing a server: read [Field Guide sections 1–4](FIELD-GUIDE.md#1-the-central-model-a-partially-ordered-capability-boundary), then select the intended profile in [VERSION-REGISTER.json](VERSION-REGISTER.json).
@@ -36,6 +42,7 @@ The project separates four things that age at different rates:
 - Upgrading protocol revisions: compare the applicable files in [profiles/](profiles/) and keep historical tests bound to the revision they were written for.
 - Learning from the originating implementation: use the sanitized [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.md).
 - Running an agent workflow: invoke the packaged skill in [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md).
+- Reading the complete ownership and feedback topology: use the [architecture atlas](ARCHITECTURE.md) and its three bilingual diagram pairs.
 - Maintaining or releasing the reference: follow the [maintenance workflow](MAINTENANCE.md) and [changelog](CHANGELOG.md).
 
 ## Version model

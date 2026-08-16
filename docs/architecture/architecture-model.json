@@ -1,0 +1,483 @@
+{
+  "schema": "draw-clear-architecture/model-v1",
+  "diagram_family": "mcp-server-engineering-field-guide",
+  "model_revision": "2026-08-16.2",
+  "evidence_snapshot": {
+    "public_repository": "https://github.com/IndelibleVivi/mcp-server-engineering-field-guide",
+    "guide_version": "2.0.1",
+    "skill_version": "0.1.0",
+    "release_commit": "dcb2c61a060948f92d35918af43919bdfde8b01a",
+    "claim_scope": "public repository source and release evidence only"
+  },
+  "primary_question": {
+    "zh_CN": "这套工程系统如何把移动中的外部规范、稳定方法、revision-specific truth、目标实现、可执行 review、同源评测与公开 release 连接成一条可追溯而不越权的证据链？",
+    "en": "How does the system connect moving external specifications, stable guidance, revision-specific truth, target implementations, executable review, same-owner evaluation, and public release without losing provenance or authority boundaries?"
+  },
+  "audiences": [
+    "PDF companion readers who need a deep Chinese-leading project map",
+    "repository readers and reusers who need a comprehensive bilingual architecture reference",
+    "maintainers who need stable IDs for later revision and figure updates"
+  ],
+  "regions": [
+    {
+      "id": "R0",
+      "name_zh_CN": "外部 normative authority",
+      "name_en": "External normative authority",
+      "owner": "MCP specification maintainers, IETF/RFC authorities, and named integration providers",
+      "boundary": "The project can pin, interpret, and date these sources; it does not own or rewrite their normative truth.",
+      "evidence_status": "verified-public-source"
+    },
+    {
+      "id": "R1",
+      "name_zh_CN": "Public reference repository",
+      "name_en": "Public reference repository",
+      "owner": "IndelibleVivi project repository",
+      "boundary": "Owns project-authored guidance, profiles, case-study records, release registers, and public evaluation artifacts; does not own target server state or external specifications.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "R2",
+      "name_zh_CN": "Executable skill package",
+      "name_en": "Executable skill package",
+      "owner": "Versioned mcp-server-engineering skill bytes",
+      "boundary": "Selects workflow and bounded references; produces analysis or patches only within the active task and target repository authority.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "R3",
+      "name_zh_CN": "Target implementation and deployment",
+      "name_en": "Target implementation and deployment",
+      "owner": "The reviewed project's application, parent process, framework, proxy, tunnel, host, and operators",
+      "boundary": "Canonical runtime state and side effects remain with the target system; the Field Guide repository cannot confer reachability, host acceptance, or production assurance.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "R4",
+      "name_zh_CN": "Evaluation and adjudication",
+      "name_en": "Evaluation and adjudication",
+      "owner": "Same-owner evaluation workflow for release 2.0.1",
+      "boundary": "Can establish the recorded installed-skill dogfood behavior and rubric outcome; cannot establish independent assurance or causal no-skill uplift.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "R5",
+      "name_zh_CN": "Maintenance and release",
+      "name_en": "Maintenance and release",
+      "owner": "Repository maintainer and Git/GitHub release workflow",
+      "boundary": "Publishes byte-identified repository state after bilingual, profile, package, corpus, and link validation; future source changes require a new revision decision.",
+      "evidence_status": "verified-repository-source"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "N00",
+      "region": "R0",
+      "name_zh_CN": "MCP specifications",
+      "name_en": "MCP specifications",
+      "responsibility": "Own protocol semantics for named revisions.",
+      "mechanism_or_state": ["2025-06-18", "2025-11-25", "2026-07-28"],
+      "authority_limit": "The repository profiles are dated interpretations, not replacement normative authority.",
+      "evidence_status": "verified-public-source"
+    },
+    {
+      "id": "N01",
+      "region": "R0",
+      "name_zh_CN": "JSON-RPC 2.0 / HTTP RFC 9110 & 9112",
+      "name_en": "JSON-RPC 2.0 / HTTP RFC 9110 & 9112",
+      "responsibility": "Own message and transport semantics used by applicable implementations.",
+      "mechanism_or_state": ["named normative references", "transport-specific applicability"],
+      "authority_limit": "HTTP controls are not applicable to parent-owned stdio merely to make a review look complete.",
+      "evidence_status": "verified-public-source"
+    },
+    {
+      "id": "N02",
+      "region": "R0",
+      "name_zh_CN": "Named integration guidance",
+      "name_en": "Named integration guidance",
+      "responsibility": "Supply dated provider-specific compatibility guidance.",
+      "mechanism_or_state": ["integration-guidance-2026-08-15"],
+      "authority_limit": "Offline or bundled guidance cannot be presented as a live compatibility check.",
+      "evidence_status": "verified-dated-source"
+    },
+    {
+      "id": "N10",
+      "region": "R1",
+      "name_zh_CN": "Field Guide stable core",
+      "name_en": "Field Guide stable core",
+      "responsibility": "Hold capability ownership, partial ordering, state/effect, egress, deployment, and verification principles whose useful life exceeds one protocol revision.",
+      "mechanism_or_state": ["FIELD-GUIDE.md", "FIELD-GUIDE.zh-CN.md"],
+      "authority_limit": "Stable engineering guidance does not make moving protocol facts timeless.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "N11",
+      "region": "R1",
+      "name_zh_CN": "Revision profiles",
+      "name_en": "Revision profiles",
+      "responsibility": "Pin revision-specific MCP, JSON-RPC, HTTP, and integration reference surfaces.",
+      "mechanism_or_state": ["profiles/", "mirrored skill references"],
+      "authority_limit": "Each profile declares source revision and assessment date; it does not collapse historical and current designs into one checklist.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "N12",
+      "region": "R1",
+      "name_zh_CN": "Public case study",
+      "name_en": "Public case study",
+      "responsibility": "Anchor generalized method to a named small-server intervention, hardened fork, reconciliation, tests, and residual boundaries.",
+      "mechanism_or_state": ["case study", "public evidence index", "test matrix", "public receipts"],
+      "authority_limit": "One case supplies provenance and examples, not universal proof.",
+      "evidence_status": "verified-public-project-evidence"
+    },
+    {
+      "id": "N13",
+      "region": "R1",
+      "name_zh_CN": "VERSION-REGISTER",
+      "name_en": "VERSION-REGISTER",
+      "responsibility": "Own the release's selected guide, skill, profile, source, and publication identities.",
+      "mechanism_or_state": ["VERSION-REGISTER.json", "release 2.0.1"],
+      "authority_limit": "It records selected identities; it does not itself prove runtime behavior.",
+      "evidence_status": "verified-canonical-repository-state"
+    },
+    {
+      "id": "N14",
+      "region": "R1",
+      "name_zh_CN": "BILINGUAL-MANIFEST",
+      "name_en": "BILINGUAL-MANIFEST",
+      "responsibility": "Register paired Chinese and English project documents and expected sync surfaces.",
+      "mechanism_or_state": ["BILINGUAL-MANIFEST.json", "coverage validator"],
+      "authority_limit": "Structural pairing is not independent semantic parity measurement.",
+      "evidence_status": "verified-canonical-repository-state"
+    },
+    {
+      "id": "N20",
+      "region": "R2",
+      "name_zh_CN": "SKILL controller",
+      "name_en": "SKILL controller",
+      "responsibility": "Choose design, audit, patch-review, or spec-upgrade mode; stop proportionately when the task does not require the full workflow.",
+      "mechanism_or_state": ["preflight", "work mode", "profile selection", "reference routing"],
+      "authority_limit": "The skill guides agent behavior but cannot promote unknown runtime facts to verified findings.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "N21",
+      "region": "R2",
+      "name_zh_CN": "Bundled references",
+      "name_en": "Bundled references",
+      "responsibility": "Supply core invariants, deployment ownership, evidence discipline, protocol selection, MCP Apps, HTTP, and mirrored revision material as selected by the controller.",
+      "mechanism_or_state": ["references/", "relative direct reads", "profile mirrors"],
+      "authority_limit": "Only the references needed for the active mode/profile should load; bundled copies remain subordinate to named source authority.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "N22",
+      "region": "R2",
+      "name_zh_CN": "Templates and validators",
+      "name_en": "Templates and validators",
+      "responsibility": "Make claims, findings, threats, tests, upgrade retirement, receipts, bilingual coverage, links, and package structure inspectable.",
+      "mechanism_or_state": ["assets/templates/", "scripts/"],
+      "authority_limit": "Schema validity and link integrity are gates, not quality or security certificates.",
+      "evidence_status": "verified-repository-source"
+    },
+    {
+      "id": "N30",
+      "region": "R3",
+      "name_zh_CN": "Target facts preflight",
+      "name_en": "Target facts preflight",
+      "responsibility": "Fix declared revision, transport, deployment reachability, capability owner, and evidence ceiling before controls are selected.",
+      "mechanism_or_state": ["revision", "transport", "deployment", "owner", "evidence ceiling"],
+      "authority_limit": "Missing runtime or host evidence remains unknown rather than inferred from source layout.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N31",
+      "region": "R3",
+      "name_zh_CN": "Transport envelopes",
+      "name_en": "Transport envelopes",
+      "responsibility": "Own transport-specific parsing, framing, admission, identity, and response-delivery concerns.",
+      "mechanism_or_state": ["stdio", "Streamable HTTP", "custom transport"],
+      "authority_limit": "A transport envelope must not create a more privileged copy of shared capability semantics.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N32",
+      "region": "R3",
+      "name_zh_CN": "Shared capability core",
+      "name_en": "Shared capability core",
+      "responsibility": "Own normalized input, semantic validation, authorization-relevant decisions, resource budgets, state transitions, effects, and result semantics shared across transports.",
+      "mechanism_or_state": ["normalize", "validate", "authorize", "execute", "mutate", "return"],
+      "authority_limit": "A later control cannot retroactively protect resource, state, or authority already consumed before its enforcement point.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N33",
+      "region": "R3",
+      "name_zh_CN": "Deployment owners",
+      "name_en": "Deployment owners",
+      "responsibility": "Own actual proxy, tunnel, host, origin, reachability, secrets, and operator policy at their respective layers.",
+      "mechanism_or_state": ["source", "runtime", "proxy", "tunnel", "named host"],
+      "authority_limit": "Repository source cannot prove a selected host or deployed edge accepted the behavior.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N34",
+      "region": "R3",
+      "name_zh_CN": "MCP App projections",
+      "name_en": "MCP App projections",
+      "responsibility": "Separate model-visible, component-visible, and operator-visible projections and their authority boundaries.",
+      "mechanism_or_state": ["model projection", "component projection", "operator projection"],
+      "authority_limit": "Visibility to one consumer does not imply visibility or mutation authority for another; browser/host acceptance requires separate evidence.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N35",
+      "region": "R3",
+      "name_zh_CN": "Observations and receipts",
+      "name_en": "Observations and receipts",
+      "responsibility": "Record what source inspection, tests, function reproduction, runtime observation, named-host acceptance, or independent reproduction actually established.",
+      "mechanism_or_state": ["source-verifiable", "function-level", "runtime", "host", "independent"],
+      "authority_limit": "A receipt proves only its observed boundary; projection or sanitization does not change provenance.",
+      "evidence_status": "task-dependent"
+    },
+    {
+      "id": "N40",
+      "region": "R4",
+      "name_zh_CN": "Scenario corpus",
+      "name_en": "Scenario corpus",
+      "responsibility": "Define one positive discovery canary and eight scored synthetic scenarios with isolated prompts and fixtures.",
+      "mechanism_or_state": ["scenarios.json", "prompts/", "fixtures/"],
+      "authority_limit": "Synthetic coverage is selected judgment coverage, not a statistical sample of production deployments.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N41",
+      "region": "R4",
+      "name_zh_CN": "Byte-identical installed skill runs",
+      "name_en": "Byte-identical installed skill runs",
+      "responsibility": "Execute the installed skill against each isolated scenario and capture process/turn/tool evidence.",
+      "mechanism_or_state": ["one canary", "eight scored runs", "requested model gpt-5.6-sol"],
+      "authority_limit": "Runtime-reported model identity is unknown; execution is same-owner.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N42",
+      "region": "R4",
+      "name_zh_CN": "Trace observer",
+      "name_en": "Trace observer",
+      "responsibility": "Distinguish process exit, thread/turn completion, trace completeness, final-message availability, skill loading, and oracle access evidence.",
+      "mechanism_or_state": ["resolved path", "installed symlink spelling", "relative reference reads"],
+      "authority_limit": "Observer blind spots create evaluator defects, not retroactive skill failures.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N43",
+      "region": "R4",
+      "name_zh_CN": "Projected outputs and receipts",
+      "name_en": "Projected outputs and receipts",
+      "responsibility": "Publish complete final answers and schema-v2 same-owner receipts while keeping private raw JSONL and tool traces outside the repository.",
+      "mechanism_or_state": ["outputs/", "receipts/", "normalized temporary paths"],
+      "authority_limit": "Public projection preserves declared provenance and cannot transform same-owner evidence into independent evidence.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N44",
+      "region": "R4",
+      "name_zh_CN": "Frozen rubric and adjudication",
+      "name_en": "Frozen rubric and adjudication",
+      "responsibility": "Admit only valid-completed runs, assess critical items, and bind each result to the rubric/scenario revision used for that run.",
+      "mechanism_or_state": ["rubric 1.1.0", "results.json", "9/9 valid-completed"],
+      "authority_limit": "Old output is not re-scored under a new rubric; same-owner adjudication is not independent measurement.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N45",
+      "region": "R4",
+      "name_zh_CN": "Evaluation repair boundary",
+      "name_en": "Evaluation repair boundary",
+      "responsibility": "Route observer defects to the observer, language-control defects to prompts/scenario revisions, and rubric defects to a new rubric followed by reruns.",
+      "mechanism_or_state": ["retain excluded preflight provenance", "revise evaluator", "rerun all affected release scenarios"],
+      "authority_limit": "Evaluator repair must not silently modify the skill bytes being evaluated.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N50",
+      "region": "R5",
+      "name_zh_CN": "Repository validation gates",
+      "name_en": "Repository validation gates",
+      "responsibility": "Check tests, syntax, version register, profile mirrors, bilingual coverage, skill package, links, review bundle, and evaluation corpus.",
+      "mechanism_or_state": ["32 repository tests", "portable-package and public-text validators", "evaluation-corpus gate"],
+      "authority_limit": "Passing repository gates proves the named artifacts and checks, not deployed behavior or independent assurance.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N51",
+      "region": "R5",
+      "name_zh_CN": "Git commit, tag, and release object",
+      "name_en": "Git commit, tag, and release object",
+      "responsibility": "Identify and publish the exact public repository state selected for release.",
+      "mechanism_or_state": ["commit dcb2c61a…", "tag v2.0.1", "GitHub release"],
+      "authority_limit": "Release identity does not erase declared evidence limitations or create stranger adoption evidence.",
+      "evidence_status": "verified-public-release-evidence"
+    },
+    {
+      "id": "N52",
+      "region": "R5",
+      "name_zh_CN": "Future revision intake",
+      "name_en": "Future revision intake",
+      "responsibility": "Detect a new specification, integration change, field case, or evaluation failure and route it to the correct artifact owner.",
+      "mechanism_or_state": ["new profile or dated assessment", "stable-core change only when principle changes", "bilingual sync", "new release"],
+      "authority_limit": "A new source does not authorize silently rewriting historical profiles or old evidence.",
+      "evidence_status": "verified-maintenance-contract"
+    }
+  ],
+  "states": [
+    {
+      "id": "S0",
+      "name": "normative revision truth",
+      "canonical_owner": "N00/N01/N02 external named sources",
+      "permitted_writers": "external source authorities",
+      "repository_projection": "N11 dated profiles",
+      "observable_receipt": "source URL, revision/date, and profile assessment record"
+    },
+    {
+      "id": "S1",
+      "name": "selected release identities",
+      "canonical_owner": "N13 VERSION-REGISTER",
+      "permitted_writers": "repository maintainer through reviewed Git changes",
+      "observable_receipt": "validated VERSION-REGISTER.json at a named commit/tag"
+    },
+    {
+      "id": "S2",
+      "name": "target runtime state and effects",
+      "canonical_owner": "N32/N33 target capability and deployment owners",
+      "permitted_writers": "target-authorized application, operator, and infrastructure paths",
+      "observable_receipt": "source/test/runtime/host/independent evidence at the actually observed boundary"
+    },
+    {
+      "id": "S3",
+      "name": "evaluation run validity and outcome",
+      "canonical_owner": "N44 results.json bound to scenarios, rubric, outputs, and receipts",
+      "permitted_writers": "same-owner evaluation/adjudication workflow for this release",
+      "observable_receipt": "run ID, receipt, projected answer, rubric outcome, and residual boundary"
+    },
+    {
+      "id": "S4",
+      "name": "public release byte identity",
+      "canonical_owner": "N51 Git commit/tag/release object",
+      "permitted_writers": "authorized repository maintainer and hosting platform release action",
+      "observable_receipt": "public commit, tag, release URL, and read-back"
+    }
+  ],
+  "edges": [
+    {"id": "E00", "from": "N00", "to": "N11", "action_or_payload": "pin named MCP revision and dated interpretation", "evidence_status": "verified"},
+    {"id": "E01", "from": "N01", "to": "N11", "action_or_payload": "pin applicable JSON-RPC and HTTP semantics", "evidence_status": "verified"},
+    {"id": "E02", "from": "N02", "to": "N11", "action_or_payload": "record dated integration guidance without live-status uplift", "evidence_status": "verified"},
+    {"id": "E03", "from": "N10", "to": "N20", "action_or_payload": "provide stable engineering workflow principles", "evidence_status": "verified"},
+    {"id": "E04", "from": "N11", "to": "N21", "action_or_payload": "synchronize selected profile mirrors into the portable skill package", "evidence_status": "verified"},
+    {"id": "E05", "from": "N12", "to": "N10", "action_or_payload": "supply situated failure modes and public particulars for generalization", "evidence_status": "verified"},
+    {"id": "E06", "from": "N13", "to": "N20", "action_or_payload": "declare selected guide, skill, and profile identities", "evidence_status": "verified"},
+    {"id": "E07", "from": "N14", "to": "N50", "action_or_payload": "declare bilingual pairs for validation", "evidence_status": "verified"},
+    {"id": "E08", "from": "N30", "to": "N20", "action_or_payload": "supply task mode, revision, transport, deployment, owner, and evidence ceiling", "evidence_status": "task-dependent"},
+    {"id": "E09", "from": "N20", "to": "N21", "action_or_payload": "select only the references required by mode/profile", "evidence_status": "verified-workflow"},
+    {"id": "E10", "from": "N20", "to": "N31", "action_or_payload": "map applicable transport controls and owners", "evidence_status": "task-dependent"},
+    {"id": "E11", "from": "N20", "to": "N32", "action_or_payload": "audit or design ordered capability gates, state, effects, and budgets", "evidence_status": "task-dependent"},
+    {"id": "E12", "from": "N20", "to": "N33", "action_or_payload": "separate source, runtime, proxy, tunnel, host, and operator claims", "evidence_status": "task-dependent"},
+    {"id": "E13", "from": "N20", "to": "N34", "action_or_payload": "separate model/component/operator projections and authority", "evidence_status": "task-dependent"},
+    {"id": "E14", "from": "N31", "to": "N32", "action_or_payload": "deliver normalized requests into one shared capability core", "evidence_status": "task-dependent"},
+    {"id": "E15", "from": "N32", "to": "N35", "action_or_payload": "emit source, test, runtime, state/effect, and result observations", "evidence_status": "task-dependent"},
+    {"id": "E16", "from": "N33", "to": "N35", "action_or_payload": "emit deployment reachability, proxy/tunnel, and host acceptance evidence", "evidence_status": "task-dependent"},
+    {"id": "E17", "from": "N34", "to": "N35", "action_or_payload": "emit projection, browser, resource, CSP, and host observations", "evidence_status": "task-dependent"},
+    {"id": "E18", "from": "N22", "to": "N35", "action_or_payload": "structure findings, claim ledgers, test matrices, and evidence receipts", "evidence_status": "verified-workflow"},
+    {"id": "E19", "from": "N40", "to": "N41", "action_or_payload": "dispatch isolated prompt and fixture with scenario revision", "evidence_status": "verified"},
+    {"id": "E20", "from": "N20", "to": "N41", "action_or_payload": "provide byte-identical installed skill workflow", "evidence_status": "verified"},
+    {"id": "E21", "from": "N41", "to": "N42", "action_or_payload": "emit process, turn, command, load, and final-message trace events", "evidence_status": "verified"},
+    {"id": "E22", "from": "N41", "to": "N43", "action_or_payload": "produce final answer and run receipt inputs", "evidence_status": "verified"},
+    {"id": "E23", "from": "N42", "to": "N44", "action_or_payload": "supply run-validity and observable loading/oracle evidence", "evidence_status": "verified"},
+    {"id": "E24", "from": "N43", "to": "N44", "action_or_payload": "supply projected answer, receipt, hashes, and residuals", "evidence_status": "verified"},
+    {"id": "E25", "from": "N44", "to": "N45", "action_or_payload": "route evaluator defect or ambiguous control to the component that owns it", "evidence_status": "verified"},
+    {"id": "E26", "from": "N45", "to": "N40", "action_or_payload": "revise prompt/scenario when language or fixture control changed", "evidence_status": "verified-feedback"},
+    {"id": "E27", "from": "N45", "to": "N42", "action_or_payload": "repair observer path/reference recognition", "evidence_status": "verified-feedback"},
+    {"id": "E28", "from": "N45", "to": "N44", "action_or_payload": "version rubric and preserve old-run disposition", "evidence_status": "verified-feedback"},
+    {"id": "E29", "from": "N45", "to": "N41", "action_or_payload": "rerun affected release scenarios without changing skill bytes", "evidence_status": "verified-feedback"},
+    {"id": "E30", "from": "N44", "to": "N50", "action_or_payload": "supply results, report, corpus, and receipt validation inputs", "evidence_status": "verified"},
+    {"id": "E31", "from": "N13", "to": "N50", "action_or_payload": "supply selected version/profile/release contract", "evidence_status": "verified"},
+    {"id": "E32", "from": "N20", "to": "N50", "action_or_payload": "supply portable skill package and validators", "evidence_status": "verified"},
+    {"id": "E33", "from": "N50", "to": "N51", "action_or_payload": "gate exact public bytes before commit/tag/release", "evidence_status": "verified"},
+    {"id": "E34", "from": "N51", "to": "N52", "action_or_payload": "establish current public baseline for later maintenance", "evidence_status": "verified"},
+    {"id": "E35", "from": "N00", "to": "N52", "action_or_payload": "new or revised normative source triggers revision intake", "evidence_status": "future-conditional"},
+    {"id": "E36", "from": "N02", "to": "N52", "action_or_payload": "new dated integration evidence triggers compatibility reassessment", "evidence_status": "future-conditional"},
+    {"id": "E37", "from": "N35", "to": "N52", "action_or_payload": "new field observation or residual may trigger guide, profile, case, test, or skill change", "evidence_status": "future-conditional"},
+    {"id": "E38", "from": "N52", "to": "N10", "action_or_payload": "change stable core only when the durable engineering principle changed", "evidence_status": "verified-maintenance-contract"},
+    {"id": "E39", "from": "N52", "to": "N11", "action_or_payload": "add or revise a dated profile without rewriting historical profile truth", "evidence_status": "verified-maintenance-contract"},
+    {"id": "E40", "from": "N52", "to": "N14", "action_or_payload": "synchronize the affected Chinese/English artifact pair", "evidence_status": "verified-maintenance-contract"},
+    {"id": "E41", "from": "N52", "to": "N40", "action_or_payload": "add or revise evaluation coverage for the changed contract", "evidence_status": "verified-maintenance-contract"}
+  ],
+  "unknowns_and_non_claims": [
+    {
+      "id": "U0",
+      "status": "unknown",
+      "statement": "The runtime did not report a model identity more specific than the requested gpt-5.6-sol label."
+    },
+    {
+      "id": "U1",
+      "status": "not-established",
+      "statement": "Release 2.0.1 does not establish independent assurance."
+    },
+    {
+      "id": "U2",
+      "status": "not-performed",
+      "statement": "No causal no-skill A/B comparison was performed."
+    },
+    {
+      "id": "U3",
+      "status": "unknown",
+      "statement": "Public evidence does not yet establish how unfamiliar independent maintainers will use, modify, or operationalize the repository."
+    },
+    {
+      "id": "U4",
+      "status": "task-dependent",
+      "statement": "Target runtime, proxy, tunnel, browser, and named-host behavior remain unknown until the corresponding boundary is actually observed."
+    }
+  ],
+  "views": [
+    {
+      "id": "V-MASTER",
+      "title_zh_CN": "Authority · Artifact · Execution · Evidence · Evaluation · Release",
+      "title_en": "Authority · Artifact · Execution · Evidence · Evaluation · Release",
+      "purpose": "Comprehensive cross-plane repository architecture for the public project and the attachment's navigational overview.",
+      "regions": ["R0", "R1", "R2", "R3", "R4", "R5"],
+      "required_nodes": ["N00", "N01", "N02", "N10", "N11", "N12", "N13", "N14", "N20", "N21", "N22", "N30", "N31", "N32", "N33", "N34", "N35", "N40", "N41", "N42", "N43", "N44", "N45", "N50", "N51", "N52"],
+      "required_states": ["S0", "S1", "S2", "S3", "S4"],
+      "required_unknowns": ["U0", "U1", "U2", "U3", "U4"],
+      "renderer_guidance": "For portrait publication, stack R0-R5 as horizontal owner bands, keep the main truth route top-to-bottom, and route evaluation/maintenance returns through side gutters. Build another native model view rather than cropping this canvas when a different reader job is required."
+    },
+    {
+      "id": "V-REVIEW",
+      "title_zh_CN": "一次 review 怎样穿过 ownership 与 enforcement boundaries",
+      "title_en": "How one review crosses ownership and enforcement boundaries",
+      "purpose": "Show preflight, selected references, transport envelopes, shared capability core, deployment owners, evidence receipts, and applicability/unknown decisions.",
+      "regions": ["R0", "R1", "R2", "R3"],
+      "required_nodes": ["N00", "N01", "N02", "N10", "N11", "N20", "N21", "N22", "N30", "N31", "N32", "N33", "N34", "N35"],
+      "required_states": ["S0", "S2"],
+      "required_unknowns": ["U4"],
+      "renderer_guidance": "Use one native portrait route: named authority, target preflight and selected references, transport admission, the shared capability core, deployment/projection owners, receipts, and the decision rail. Preserve the later-control-cannot-protect-earlier-consumption constraint."
+    },
+    {
+      "id": "V-EVALUATION",
+      "title_zh_CN": "Evaluation 如何发现并修正自己的测量缺陷",
+      "title_en": "How evaluation detects and repairs its own measurement defects",
+      "purpose": "Show corpus, installed runs, observer, public projections, frozen rubric, defect routing, reruns, results, and release without implying skill-byte changes or independent assurance.",
+      "regions": ["R2", "R4", "R5"],
+      "required_nodes": ["N20", "N40", "N41", "N42", "N43", "N44", "N45", "N50", "N51"],
+      "required_states": ["S3", "S4"],
+      "required_unknowns": ["U0", "U1", "U2"],
+      "renderer_guidance": "Use a native portrait forward execution/evidence spine plus explicit side-gutter repair loops to scenario/prompt, observer, and rubric; show rerun returning to installed execution while skill bytes remain fixed."
+    }
+  ],
+  "render_contract": {
+    "semantic_rule": "A renderer may change coordinates or shorten visible node copy, but it may not delete a required node, region, state owner, feedback edge, version boundary, evidence status, or unknown from the selected view. A different reading route must be a native view derived from this model, not a crop, rotation, or splice of one landscape canvas.",
+    "typography": "Serif/Song-led semantic labels and prose; mono for stable IDs, revisions, evidence states, and receipts; no large bold Hei/sans technical shorthand.",
+    "visual_language": "White field, fine rules, nested planes, deliberate routing gutters, stable coordinate IDs, restrained dawn blue/verified green/ochre/carmine status accents, no default Mermaid theme and no sterilized six-node flow.",
+    "shared_ids": "All PDF and repository views retain the N/R/S/E/U identifiers in editable source or legend so details remain cross-addressable."
+  }
+}
