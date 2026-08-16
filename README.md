@@ -33,7 +33,8 @@ The bilingual [architecture atlas](ARCHITECTURE.md) ([简体中文](ARCHITECTURE
 connects those surfaces to external authority, target-system ownership,
 same-owner evaluation, and release maintenance. It includes a renderer-neutral
 model, editable Excalidraw sources, and publication SVGs rather than flattening
-the project into a directory tree.
+the project into a directory tree. Each semantic view has native landscape
+repository and portrait continuous-reading siblings.
 
 ## Start here
 
@@ -42,7 +43,7 @@ the project into a directory tree.
 - Upgrading protocol revisions: compare the applicable files in [profiles/](profiles/) and keep historical tests bound to the revision they were written for.
 - Learning from the originating implementation: use the sanitized [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.md).
 - Running an agent workflow: invoke the packaged skill in [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md).
-- Reading the complete ownership and feedback topology: use the [architecture atlas](ARCHITECTURE.md) and its three bilingual diagram pairs.
+- Reading the complete ownership and feedback topology: use the [architecture atlas](ARCHITECTURE.md) and its three bilingual views in native landscape and portrait layouts.
 - Maintaining or releasing the reference: follow the [maintenance workflow](MAINTENANCE.md) and [changelog](CHANGELOG.md).
 
 ## Version model

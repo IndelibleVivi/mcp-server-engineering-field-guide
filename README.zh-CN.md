@@ -33,6 +33,8 @@ Bilingual [architecture atlas](ARCHITECTURE.zh-CN.md)（[English](ARCHITECTURE.m
 把这些 surfaces 与 external authority、target-system ownership、same-owner evaluation
 及 release maintenance 连接起来。它包含 renderer-neutral model、editable Excalidraw
 sources 与 publication SVGs，而不是把项目压平成一棵 directory tree。
+每个 semantic view 都有 native landscape repository sibling 与 portrait
+continuous-reading sibling。
 
 ## 从哪里开始
 
@@ -41,7 +43,7 @@ sources 与 publication SVGs，而不是把项目压平成一棵 directory tree�
 - 升级 protocol revision：对比 [profiles/](profiles/README.zh-CN.md) 中适用的文件，并让 historical tests 继续绑定其原始 revision。
 - 阅读起源实现：使用已去除私人工作痕迹的 [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.zh-CN.md)。
 - 运行 agent workflow：调用 [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md) 中打包的 skill。
-- 阅读完整 ownership / feedback topology：使用 [architecture atlas](ARCHITECTURE.zh-CN.md) 与其中三组 bilingual diagram pairs。
+- 阅读完整 ownership / feedback topology：使用 [architecture atlas](ARCHITECTURE.zh-CN.md) 与其中三组 bilingual views 的 native landscape / portrait layouts。
 - 维护或发布 reference：遵循 [maintenance workflow](MAINTENANCE.zh-CN.md) 与 [changelog](CHANGELOG.zh-CN.md)。
 
 ## Version model

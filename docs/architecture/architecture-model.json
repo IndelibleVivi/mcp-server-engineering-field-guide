@@ -1,7 +1,7 @@
 {
   "schema": "draw-clear-architecture/model-v1",
   "diagram_family": "mcp-server-engineering-field-guide",
-  "model_revision": "2026-08-16.2",
+  "model_revision": "2026-08-16.3",
   "evidence_snapshot": {
     "public_repository": "https://github.com/IndelibleVivi/mcp-server-engineering-field-guide",
     "guide_version": "2.0.1",
@@ -449,7 +449,7 @@
       "required_nodes": ["N00", "N01", "N02", "N10", "N11", "N12", "N13", "N14", "N20", "N21", "N22", "N30", "N31", "N32", "N33", "N34", "N35", "N40", "N41", "N42", "N43", "N44", "N45", "N50", "N51", "N52"],
       "required_states": ["S0", "S1", "S2", "S3", "S4"],
       "required_unknowns": ["U0", "U1", "U2", "U3", "U4"],
-      "renderer_guidance": "For portrait publication, stack R0-R5 as horizontal owner bands, keep the main truth route top-to-bottom, and route evaluation/maintenance returns through side gutters. Build another native model view rather than cropping this canvas when a different reader job is required."
+      "renderer_guidance": "For portrait publication, stack R0-R5 as horizontal owner bands, keep the main truth route top-to-bottom, and route evaluation/maintenance returns through side gutters. For repository or full-screen inspection, place R0-R5 as left-to-right owner planes and preserve the complete cross-plane and return topology. Both layouts remain native geometry siblings of this semantic view; neither is a crop, rotation, or separate semantic authority."
     },
     {
       "id": "V-REVIEW",
@@ -460,7 +460,7 @@
       "required_nodes": ["N00", "N01", "N02", "N10", "N11", "N20", "N21", "N22", "N30", "N31", "N32", "N33", "N34", "N35"],
       "required_states": ["S0", "S2"],
       "required_unknowns": ["U4"],
-      "renderer_guidance": "Use one native portrait route: named authority, target preflight and selected references, transport admission, the shared capability core, deployment/projection owners, receipts, and the decision rail. Preserve the later-control-cannot-protect-earlier-consumption constraint."
+      "renderer_guidance": "The portrait sibling uses one vertical route from named authority through target preflight, selected references, transport admission, the shared capability core, deployment/projection owners, receipts, and the decision rail. The landscape sibling uses wide authority, routing, and execution bands so enforcement order and peer owners can be inspected side by side. Preserve the later-control-cannot-protect-earlier-consumption constraint in both."
     },
     {
       "id": "V-EVALUATION",
@@ -471,11 +471,23 @@
       "required_nodes": ["N20", "N40", "N41", "N42", "N43", "N44", "N45", "N50", "N51"],
       "required_states": ["S3", "S4"],
       "required_unknowns": ["U0", "U1", "U2"],
-      "renderer_guidance": "Use a native portrait forward execution/evidence spine plus explicit side-gutter repair loops to scenario/prompt, observer, and rubric; show rerun returning to installed execution while skill bytes remain fixed."
+      "renderer_guidance": "The portrait sibling uses a forward execution/evidence spine plus explicit side-gutter repair loops to scenario/prompt, observer, and rubric. The landscape sibling uses left-to-right skill, evaluation, and release owners with the repair boundary occupying its own wide lower band. Both show rerun returning to installed execution while skill bytes remain fixed."
+    }
+  ],
+  "layout_variants": [
+    {
+      "id": "portrait",
+      "reader_job": "Continuous PDF, print, and narrow-document reading",
+      "contract": "Native portrait geometry with one dominant vertical reading direction; never a crop, rotation, or splice of the landscape scene."
+    },
+    {
+      "id": "landscape",
+      "reader_job": "Repository exploration, desktop inspection, and wide-screen architecture discussion",
+      "contract": "Native landscape geometry preserving the same selected view, stable IDs, edge meanings, versions, states, evidence status, and unknowns as its portrait sibling."
     }
   ],
   "render_contract": {
-    "semantic_rule": "A renderer may change coordinates or shorten visible node copy, but it may not delete a required node, region, state owner, feedback edge, version boundary, evidence status, or unknown from the selected view. A different reading route must be a native view derived from this model, not a crop, rotation, or splice of one landscape canvas.",
+    "semantic_rule": "A renderer may change coordinates or shorten visible node copy, but it may not delete a required node, region, state owner, feedback edge, version boundary, evidence status, or unknown from the selected view. Portrait and landscape layout siblings share this semantic model and are maintained as separate native geometries, not crops, rotations, splices, or independent semantic truths. A materially different question still requires a separately selected view.",
     "typography": "Serif/Song-led semantic labels and prose; mono for stable IDs, revisions, evidence states, and receipts; no large bold Hei/sans technical shorthand.",
     "visual_language": "White field, fine rules, nested planes, deliberate routing gutters, stable coordinate IDs, restrained dawn blue/verified green/ochre/carmine status accents, no default Mermaid theme and no sterilized six-node flow.",
     "shared_ids": "All PDF and repository views retain the N/R/S/E/U identifiers in editable source or legend so details remain cross-addressable."

@@ -22,6 +22,11 @@ BASES = [
     "evaluation-loop",
 ]
 
+VARIANTS = (
+    "",
+    ".landscape",
+)
+
 EDGE_LABEL_ALLOW = {
     "architecture-master": {"e00", "e03", "e14", "e15", "e25", "e29", "e33", "e34", "e37"},
     "review-execution": {"a03", "a04", "a05", "a08", "a09", "a10", "a11", "a12", "a13", "a14", "a15"},
@@ -164,6 +169,27 @@ ZH_TEXT = {
     },
 }
 
+LANDSCAPE_EN_TEXT = {
+    "review-execution": {
+        "control_note-label": "CONTROL FAMILIES\n\nprotocol invariant\nimplementation invariant\ndeployment policy\nhardening choice\n\nalways name owner + applicability",
+    },
+}
+
+LANDSCAPE_ZH_TEXT = {
+    "review-execution": {
+        "control_note-label": "CONTROL FAMILIES\n\nprotocol invariant\nimplementation invariant\ndeployment policy\nhardening choice\n\n始终明确 owner + applicability",
+    },
+}
+
+LANDSCAPE_TEXT_GEOMETRY = {
+    "architecture-master": {
+        # Keep edge labels in the whitespace between node rows rather than
+        # letting the recovered Excalidraw auto-placement cover node copy.
+        "e03-label": (925, 410, 130, 24),
+        "e15-label": (1625, 990, 210, 24),
+    },
+}
+
 MASTER_MAINTENANCE_EDGES = {
     ("n00", "n52"): "e35",
     ("n02", "n52"): "e36",
@@ -238,6 +264,29 @@ def align_master_maintenance_edges(scene: dict) -> dict:
     return scene
 
 
+def route_landscape_master_revision_inputs(scene: dict) -> dict:
+    """Give the two post-recovery revision inputs deliberate wide routes."""
+
+    routes = {
+        "e35": [(240, 270), (240, 238), (2920, 238), (2920, 980)],
+        "e36": [(410, 745), (430, 745), (430, 250), (2960, 250), (2960, 980)],
+    }
+    for element in scene["elements"]:
+        points = routes.get(element.get("id"))
+        if not points:
+            continue
+        start_x, start_y = points[0]
+        element["x"] = start_x
+        element["y"] = start_y
+        element["points"] = [
+            [point_x - start_x, point_y - start_y]
+            for point_x, point_y in points
+        ]
+        element["width"] = max(point[0] for point in points) - min(point[0] for point in points)
+        element["height"] = max(point[1] for point in points) - min(point[1] for point in points)
+    return scene
+
+
 def update_text(element: dict, text: str) -> None:
     element["text"] = text
     if "originalText" in element:
@@ -273,28 +322,53 @@ def apply_map(scene: dict, replacements: dict[str, str]) -> dict:
     return scene
 
 
+def apply_text_geometry(scene: dict, placements: dict[str, tuple[float, float, float, float]]) -> dict:
+    for element in scene["elements"]:
+        placement = placements.get(element.get("id"))
+        if placement:
+            element["x"], element["y"], element["width"], element["height"] = placement
+    return scene
+
+
 def write(path: Path, scene: dict) -> None:
     path.write_text(json.dumps(scene, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def main() -> None:
     for base in BASES:
-        zh_path = FIGURES / f"{base}.zh-CN.excalidraw"
-        en_path = FIGURES / f"{base}.en.excalidraw"
-        if en_path.exists():
-            english = json.loads(en_path.read_text(encoding="utf-8"))
-        else:
-            english = json.loads(zh_path.read_text(encoding="utf-8"))
-        if base == "architecture-master":
-            english = align_master_maintenance_edges(english)
-        english = normalize(english, base)
-        english = apply_map(english, EN_TEXT.get(base, {}))
-        write(en_path, english)
+        for variant in VARIANTS:
+            stem = f"{base}{variant}"
+            zh_path = FIGURES / f"{stem}.zh-CN.excalidraw"
+            en_path = FIGURES / f"{stem}.en.excalidraw"
+            if not zh_path.exists() and not en_path.exists():
+                continue
+            if en_path.exists():
+                english = json.loads(en_path.read_text(encoding="utf-8"))
+            else:
+                english = json.loads(zh_path.read_text(encoding="utf-8"))
+            if base == "architecture-master":
+                english = align_master_maintenance_edges(english)
+                if variant == ".landscape":
+                    english = route_landscape_master_revision_inputs(english)
+            english = normalize(english, base)
+            english = apply_map(english, EN_TEXT.get(base, {}))
+            if variant == ".landscape":
+                english = apply_map(english, LANDSCAPE_EN_TEXT.get(base, {}))
+                english = apply_text_geometry(english, LANDSCAPE_TEXT_GEOMETRY.get(base, {}))
+            write(en_path, english)
 
-        chinese = copy.deepcopy(english)
-        chinese = apply_map(chinese, ZH_TEXT[base])
-        write(zh_path, chinese)
-        print(f"{base}: en + zh-CN")
+            chinese = copy.deepcopy(english)
+            chinese = apply_map(chinese, ZH_TEXT[base])
+            if variant == ".landscape":
+                chinese = apply_map(chinese, LANDSCAPE_ZH_TEXT.get(base, {}))
+                chinese = apply_text_geometry(chinese, LANDSCAPE_TEXT_GEOMETRY.get(base, {}))
+            for element in chinese["elements"]:
+                if element.get("type") == "text":
+                    # Avoid Cascadia/mono CJK fallback blocks in the editable
+                    # source. Publication SVG typography remains renderer-owned.
+                    element["fontFamily"] = 2
+            write(zh_path, chinese)
+            print(f"{stem}: en + zh-CN")
 
 
 if __name__ == "__main__":

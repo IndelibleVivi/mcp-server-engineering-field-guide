@@ -29,7 +29,11 @@ outputs 与 release tag 当成同一棵平面目录树里的 folders，项目就
 | `R4` Evaluation and adjudication | Same-owner release evaluation workflow | Scenario identity、installed run、observer evidence、projected output、rubric disposition | Independent assurance 或 causal no-skill uplift |
 | `R5` Maintenance and release | Repository maintainer 与 Git/GitHub release workflow | Validation gates、commit、tag、release、future revision intake | Stranger adoption 或 timeless correctness |
 
-![Master architecture：六个 authority 与 lifecycle planes](docs/architecture/architecture-master.zh-CN.svg)
+![横版 Master architecture：六个 authority 与 lifecycle planes](docs/architecture/architecture-master.landscape.zh-CN.svg)
+
+上面的 landscape sibling 用于 repository 与 full-screen inspection；
+[native portrait sibling](docs/architecture/architecture-master.zh-CN.svg) 使用同一个
+semantic model，服务 continuous document 与 print reading。
 
 Solid route 把被选择的 authority 与 evidence 向前传递；dashed route 把 failure 或新
 facts 送回真正能合法修改它们的 artifact。右侧 return lanes 不是装饰：删掉它们，
@@ -52,11 +56,13 @@ Model 的 stable IDs 区分五类经常被一句 “source of truth” 混在一
 revision，却不替代 official specification；test 可以观察 function，却不会因此变成
 host evidence；Git release 可以 identify bytes，却不证明 independent use。
 
-## 三个 reading views
+## 三个 semantic views，两套 native layout families
 
-三张图都从同一个 renderer-neutral model 原生构成 portrait composition，English 与
-简体中文共用 `R/N/S/E/U` identities。没有一张是从 landscape canvas 裁切、旋转或
-拼接出来的。
+每个 semantic view 都有一张用于 repository / full-screen inspection 的 native
+landscape sibling，以及一张用于 continuous document / print reading 的 native
+portrait sibling。两者来自同一个 renderer-neutral model，并在 English / 简体中文之间
+共用 `R/N/S/E/U` identities。任何 layout 都不是对另一张的 crop、rotation 或 splice，
+两套 geometry 也不构成彼此漂移的 semantic truths。
 
 ### `V-MASTER` — authority、artifacts、execution、evidence、evaluation、release
 
@@ -71,7 +77,9 @@ observation 实际停在哪里。
 
 ### `V-REVIEW` — 一次 review 如何穿过 ownership 与 enforcement boundaries
 
-![Review execution 与 enforcement order](docs/architecture/review-execution.zh-CN.svg)
+![横版 Review execution 与 enforcement order](docs/architecture/review-execution.landscape.zh-CN.svg)
+
+[打开 native portrait review view。](docs/architecture/review-execution.zh-CN.svg)
 
 Review route 从五个 target facts 开始：revision、transport、deployment
 reachability、capability / boundary owner，以及 evidence ceiling。它们决定 profile 与
@@ -92,7 +100,9 @@ decision rail 必须保留 `not applicable`、`runtime-unknown`、`host-unknown`
 
 ### `V-EVALUATION` — evaluation 如何修正自己的 measurement defects
 
-![Evaluation correction 与 rerun loop](docs/architecture/evaluation-loop.zh-CN.svg)
+![横版 Evaluation correction 与 rerun loop](docs/architecture/evaluation-loop.landscape.zh-CN.svg)
+
+[打开 native portrait evaluation view。](docs/architecture/evaluation-loop.zh-CN.svg)
 
 Release evaluation 把 scenario control、installed execution、trace observation、public
 projection 与 frozen-rubric adjudication 分开。只有 `valid-completed` runs 进入 release
@@ -138,7 +148,9 @@ independent evidence 缺失时写 `unknown`。
 它们本身就是 architecture 的一部分。删掉它们不是把同一系统画得更简单，而是画成
 一个更强、也更不诚实的系统。
 
-## Bilingual 与 editable source contract
+## Bilingual、editable 与 multi-layout source contract
+
+### Portrait · continuous document 与 print reading
 
 | View | English publication SVG | 简体中文 publication SVG | Editable sources |
 | --- | --- | --- | --- |
@@ -146,14 +158,23 @@ independent evidence 缺失时写 `unknown`。
 | `V-REVIEW` | [`review-execution.en.svg`](docs/architecture/review-execution.en.svg) | [`review-execution.zh-CN.svg`](docs/architecture/review-execution.zh-CN.svg) | [English](docs/architecture/review-execution.en.excalidraw) · [简体中文](docs/architecture/review-execution.zh-CN.excalidraw) |
 | `V-EVALUATION` | [`evaluation-loop.en.svg`](docs/architecture/evaluation-loop.en.svg) | [`evaluation-loop.zh-CN.svg`](docs/architecture/evaluation-loop.zh-CN.svg) | [English](docs/architecture/evaluation-loop.en.excalidraw) · [简体中文](docs/architecture/evaluation-loop.zh-CN.excalidraw) |
 
+### Landscape · repository 与 full-screen inspection
+
+| View | English publication SVG | 简体中文 publication SVG | Editable sources |
+| --- | --- | --- | --- |
+| `V-MASTER` | [`architecture-master.landscape.en.svg`](docs/architecture/architecture-master.landscape.en.svg) | [`architecture-master.landscape.zh-CN.svg`](docs/architecture/architecture-master.landscape.zh-CN.svg) | [English](docs/architecture/architecture-master.landscape.en.excalidraw) · [简体中文](docs/architecture/architecture-master.landscape.zh-CN.excalidraw) |
+| `V-REVIEW` | [`review-execution.landscape.en.svg`](docs/architecture/review-execution.landscape.en.svg) | [`review-execution.landscape.zh-CN.svg`](docs/architecture/review-execution.landscape.zh-CN.svg) | [English](docs/architecture/review-execution.landscape.en.excalidraw) · [简体中文](docs/architecture/review-execution.landscape.zh-CN.excalidraw) |
+| `V-EVALUATION` | [`evaluation-loop.landscape.en.svg`](docs/architecture/evaluation-loop.landscape.en.svg) | [`evaluation-loop.landscape.zh-CN.svg`](docs/architecture/evaluation-loop.landscape.zh-CN.svg) | [English](docs/architecture/evaluation-loop.landscape.en.excalidraw) · [简体中文](docs/architecture/evaluation-loop.landscape.zh-CN.excalidraw) |
+
 [`architecture-model.json`](docs/architecture/architecture-model.json) 拥有 semantic
 regions、nodes、states、edges、unknowns、selected views 与 render contract；
 `.excalidraw` files 拥有 editable geometry 与 connector bindings；SVG 是使用 serif / Song
 semantic copy 与 mono coordinates 的 publication projections。
 
-English 与 Chinese 是 sibling renders。任何 canvas 都不把两种语言硬堆在一起，也不把
-其中一种语言降成另一种语言旁边的一行 tiny annotation。Labels 可以 naturalize，但
-stable IDs、versions、owners、edge meanings、evidence status 与 unknowns 必须对齐。
+English 与 Chinese 是 language siblings；portrait 与 landscape 是 layout siblings。
+任何 canvas 都不把两种语言硬堆在一起，也不把其中一种语言降成另一种语言旁边的一行
+tiny annotation。Labels 可以 naturalize，geometry 可以按 form factor 重组，但 stable
+IDs、versions、owners、edge meanings、evidence status 与 unknowns 必须对齐。
 
 ## Rebuild 与 maintenance
 
@@ -166,10 +187,14 @@ python3 tools/architecture/render_architecture_svgs.py
 ```
 
 Owner、boundary、state、edge、evidence status 或 declared unknown 改变时，先改 model；
-semantics 不变而只调整版式时，才只改 scene geometry。不同 reader job 需要从 model
-新建独立 native view，不能通过 crop、rotate 或 splice 现有 canvas 制造 detail page。
+`prepare_bilingual_architecture_scenes.py` 同步两套 layout families；
+`layout_portrait_architecture_scenes.py` 只拥有 portrait geometry；checked-in landscape
+scenes 保留 deliberate wide geometry。Semantics 不变而只调整版式时，才只改 scene
+geometry。问题真正改变时才从 model 新建独立 view，不能通过 crop、rotate 或 splice
+现有 canvas 制造它。
 
-发布更新前，核验两种语言 scenes，重新 render 六张 SVG，在正常阅读尺度逐张检查，再运行
+发布更新前，核验两种语言与两套 layout families，重新 render 十二张 SVG，在各自 intended
+reading scale 逐张检查，再运行
 repository 的 bilingual、link、public-text 与 test gates，并把变化记录到 `Unreleased`。
 新的 specification 或 integration fact 进入 future revision intake；它不授权重写
 historical profiles 或旧 release evidence。

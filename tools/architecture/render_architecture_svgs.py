@@ -20,10 +20,16 @@ FIGURES = ROOT / "docs" / "architecture"
 SCENES = {
     "architecture-master.zh-CN.excalidraw": "architecture-master.zh-CN.svg",
     "architecture-master.en.excalidraw": "architecture-master.en.svg",
+    "architecture-master.landscape.zh-CN.excalidraw": "architecture-master.landscape.zh-CN.svg",
+    "architecture-master.landscape.en.excalidraw": "architecture-master.landscape.en.svg",
     "review-execution.zh-CN.excalidraw": "review-execution.zh-CN.svg",
     "review-execution.en.excalidraw": "review-execution.en.svg",
+    "review-execution.landscape.zh-CN.excalidraw": "review-execution.landscape.zh-CN.svg",
+    "review-execution.landscape.en.excalidraw": "review-execution.landscape.en.svg",
     "evaluation-loop.zh-CN.excalidraw": "evaluation-loop.zh-CN.svg",
     "evaluation-loop.en.excalidraw": "evaluation-loop.en.svg",
+    "evaluation-loop.landscape.zh-CN.excalidraw": "evaluation-loop.landscape.zh-CN.svg",
+    "evaluation-loop.landscape.en.excalidraw": "evaluation-loop.landscape.en.svg",
 }
 
 EDGE_LABEL_ALLOW = {
@@ -259,7 +265,7 @@ def render_scene(source: Path, destination: Path) -> None:
             and parent_by_id.get(element["containerId"], {}).get("type") == "arrow"
         )
     ]
-    label_key = source.name.replace(".en.excalidraw", ".zh-CN.excalidraw")
+    label_key = source.name.replace(".landscape", "").replace(".en.excalidraw", ".zh-CN.excalidraw")
     allowed_edge_ids = EDGE_LABEL_ALLOW[label_key]
     edge_labels = [
         element for element in elements

@@ -41,9 +41,15 @@ The guide, protocol profiles, moving integration guidance, case-study receipts, 
 
 - Treat `docs/architecture/architecture-model.json` as the semantic authority for regions, nodes, states, edges, unknowns, selected views, and the render contract.
 - Preserve stable `R/N/S/E/U` identities across English and Simplified Chinese. Update the model first when ownership, version, evidence status, or a feedback route changes.
-- Build a native view for a new reader job. Do not crop, rotate, or splice a landscape canvas into a portrait detail page.
+- Build a native layout for a new form factor, and a new semantic view only
+  when the reader's question materially changes. Do not crop, rotate, or splice
+  a landscape canvas into a portrait detail page.
+- Keep landscape repository/full-screen and portrait document/print layouts as
+  native siblings when both materially help. Share one semantic model and
+  stable IDs; name the reader job of each geometry and never let layout variants
+  drift into separate truths.
 - Keep `.excalidraw` geometry editable and keep publication SVGs paired. Run `prepare_bilingual_architecture_scenes.py`, `layout_portrait_architecture_scenes.py`, and `render_architecture_svgs.py` in that order.
-- Inspect all six SVGs at normal reading scale. A successful script run does not establish legibility, correct connector routing, or semantic completeness.
+- Inspect all twelve SVGs at their intended reading scales. A successful script run does not establish legibility, correct connector routing, sibling alignment, or semantic completeness.
 
 ## External review handoff
 

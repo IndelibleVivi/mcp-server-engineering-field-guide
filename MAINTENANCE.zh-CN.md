@@ -41,9 +41,11 @@ Guide、protocol profiles、moving integration guidance、case-study receipts �
 
 - 把 `docs/architecture/architecture-model.json` 作为 regions、nodes、states、edges、unknowns、selected views 与 render contract 的 semantic authority。
 - English / 简体中文之间保持 stable `R/N/S/E/U` identities。Ownership、version、evidence status 或 feedback route 改变时，先改 model。
-- 新 reader job 使用新建的 native view；不能把 landscape canvas crop、rotate 或 splice 成 portrait detail page。
+- 新 form factor 使用原生 layout；只有 reader 的问题发生实质变化时才新建 semantic
+  view。不能把 landscape canvas crop、rotate 或 splice 成 portrait detail page。
+- Landscape repository / full-screen 与 portrait document / print layouts 都能 materially help 时，把它们作为 native siblings 保留。两者共用一个 semantic model 与 stable IDs，明确各自 reader job，不能让 layout variants 漂移成两套 truth。
 - `.excalidraw` geometry 保持 editable，publication SVGs 保持成对；依次运行 `prepare_bilingual_architecture_scenes.py`、`layout_portrait_architecture_scenes.py` 与 `render_architecture_svgs.py`。
-- 在正常阅读尺度检查全部六张 SVG。Script 成功运行并不证明 legibility、connector routing 或 semantic completeness。
+- 在各自 intended reading scale 检查全部十二张 SVG。Script 成功运行并不证明 legibility、connector routing、sibling alignment 或 semantic completeness。
 
 ## External review handoff
 

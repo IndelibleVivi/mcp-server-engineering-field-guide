@@ -31,7 +31,11 @@ writers.
 | `R4` Evaluation and adjudication | Same-owner release evaluation workflow | Scenario identity, installed run, observer evidence, projected output, rubric disposition | Independent assurance or causal no-skill uplift |
 | `R5` Maintenance and release | Repository maintainer plus Git/GitHub release workflow | Validation gates, commit, tag, release, future revision intake | Stranger adoption or timeless correctness |
 
-![Master architecture: six authority and lifecycle planes](docs/architecture/architecture-master.en.svg)
+![Landscape master architecture: six authority and lifecycle planes](docs/architecture/architecture-master.landscape.en.svg)
+
+The landscape sibling above is the repository and full-screen inspection view.
+The [native portrait sibling](docs/architecture/architecture-master.en.svg) uses
+the same semantic model for continuous document and print reading.
 
 The solid route moves selected authority and evidence forward. Dashed routes
 return failures or new facts to the artifact that can legitimately change them.
@@ -56,11 +60,14 @@ upstream one. A profile can pin an MCP revision without replacing the official
 specification. A test can observe a function without becoming host evidence. A
 Git release can identify bytes without proving independent use.
 
-## The three reading views
+## Three semantic views, two native layout families
 
-All three figures are native portrait compositions derived from one
-renderer-neutral model. They share `R/N/S/E/U` identities across English and
-Simplified Chinese. None is a crop, rotation, or splice of a landscape canvas.
+Each semantic view has a native landscape sibling for repository or full-screen
+inspection and a native portrait sibling for continuous document or print
+reading. Both derive from one renderer-neutral model and share `R/N/S/E/U`
+identities across English and Simplified Chinese. Neither layout is a crop,
+rotation, or splice of the other, and the two geometries are not maintained as
+separate semantic truths.
 
 ### `V-MASTER` — authority, artifacts, execution, evidence, evaluation, release
 
@@ -77,7 +84,9 @@ stopped.
 
 ### `V-REVIEW` — one review crossing ownership and enforcement boundaries
 
-![Review execution and enforcement order](docs/architecture/review-execution.en.svg)
+![Landscape review execution and enforcement order](docs/architecture/review-execution.landscape.en.svg)
+
+[Open the native portrait review view.](docs/architecture/review-execution.en.svg)
 
 The review route begins with five target facts: revision, transport, deployment
 reachability, capability or boundary owner, and evidence ceiling. Those facts
@@ -101,7 +110,9 @@ only the receipt it can produce; the decision rail therefore preserves
 
 ### `V-EVALUATION` — evaluation repairing its own measurement defects
 
-![Evaluation correction and rerun loop](docs/architecture/evaluation-loop.en.svg)
+![Landscape evaluation correction and rerun loop](docs/architecture/evaluation-loop.landscape.en.svg)
+
+[Open the native portrait evaluation view.](docs/architecture/evaluation-loop.en.svg)
 
 The release evaluation separates scenario control, installed execution, trace
 observation, public projection, and frozen-rubric adjudication. Only
@@ -152,7 +163,9 @@ or independent evidence is absent.
 These are part of the architecture. Removing them would not simplify the same
 system; it would describe a stronger and less truthful one.
 
-## Bilingual and editable source contract
+## Bilingual, editable, and multi-layout source contract
+
+### Portrait · continuous document and print reading
 
 | View | English publication SVG | Simplified Chinese publication SVG | Editable sources |
 | --- | --- | --- | --- |
@@ -160,16 +173,25 @@ system; it would describe a stronger and less truthful one.
 | `V-REVIEW` | [`review-execution.en.svg`](docs/architecture/review-execution.en.svg) | [`review-execution.zh-CN.svg`](docs/architecture/review-execution.zh-CN.svg) | [English](docs/architecture/review-execution.en.excalidraw) · [简体中文](docs/architecture/review-execution.zh-CN.excalidraw) |
 | `V-EVALUATION` | [`evaluation-loop.en.svg`](docs/architecture/evaluation-loop.en.svg) | [`evaluation-loop.zh-CN.svg`](docs/architecture/evaluation-loop.zh-CN.svg) | [English](docs/architecture/evaluation-loop.en.excalidraw) · [简体中文](docs/architecture/evaluation-loop.zh-CN.excalidraw) |
 
+### Landscape · repository and full-screen inspection
+
+| View | English publication SVG | Simplified Chinese publication SVG | Editable sources |
+| --- | --- | --- | --- |
+| `V-MASTER` | [`architecture-master.landscape.en.svg`](docs/architecture/architecture-master.landscape.en.svg) | [`architecture-master.landscape.zh-CN.svg`](docs/architecture/architecture-master.landscape.zh-CN.svg) | [English](docs/architecture/architecture-master.landscape.en.excalidraw) · [简体中文](docs/architecture/architecture-master.landscape.zh-CN.excalidraw) |
+| `V-REVIEW` | [`review-execution.landscape.en.svg`](docs/architecture/review-execution.landscape.en.svg) | [`review-execution.landscape.zh-CN.svg`](docs/architecture/review-execution.landscape.zh-CN.svg) | [English](docs/architecture/review-execution.landscape.en.excalidraw) · [简体中文](docs/architecture/review-execution.landscape.zh-CN.excalidraw) |
+| `V-EVALUATION` | [`evaluation-loop.landscape.en.svg`](docs/architecture/evaluation-loop.landscape.en.svg) | [`evaluation-loop.landscape.zh-CN.svg`](docs/architecture/evaluation-loop.landscape.zh-CN.svg) | [English](docs/architecture/evaluation-loop.landscape.en.excalidraw) · [简体中文](docs/architecture/evaluation-loop.landscape.zh-CN.excalidraw) |
+
 [`architecture-model.json`](docs/architecture/architecture-model.json) owns the
 semantic regions, nodes, states, edges, unknowns, selected views, and render
 contract. The `.excalidraw` files own editable geometry and connector bindings.
 The SVGs are publication projections with serif/Song semantic copy and mono
 coordinates.
 
-English and Chinese are sibling renders. One canvas does not stack both
-languages, and neither language is treated as a tiny annotation layer for the
-other. Labels may naturalize, while stable IDs, versions, owners, edge meanings,
-evidence status, and unknowns remain aligned.
+English and Chinese are language siblings; portrait and landscape are layout
+siblings. One canvas does not stack both languages, and neither language is
+treated as a tiny annotation layer for the other. Labels may naturalize and
+geometry may recompose for the form factor, while stable IDs, versions, owners,
+edge meanings, evidence status, and unknowns remain aligned.
 
 ## Rebuild and maintenance
 
@@ -182,13 +204,17 @@ python3 tools/architecture/render_architecture_svgs.py
 ```
 
 Edit the model first when an owner, boundary, state, edge, evidence status, or
-declared unknown changes. Edit only the scene geometry when the semantics stay
-fixed. A different reader job requires a separately modeled native view; do not
-manufacture detail pages by cropping, rotating, or splicing an existing canvas.
+declared unknown changes. `prepare_bilingual_architecture_scenes.py` synchronizes
+both layout families; `layout_portrait_architecture_scenes.py` owns only the
+portrait geometry; the checked-in landscape scenes retain their deliberate wide
+geometry. Edit only scene geometry when semantics stay fixed. A materially
+different question requires a separately modeled view; do not manufacture it by
+cropping, rotating, or splicing an existing canvas.
 
-Before publishing an update, verify both language scenes, render all six SVGs,
-inspect them at normal reading scale, run the repository bilingual, link,
-public-text, and test gates, and record the change under `Unreleased`. A new
+Before publishing an update, verify both languages and both layout families,
+render all twelve SVGs, inspect them at their intended reading scales, run the
+repository bilingual, link, public-text, and test gates, and record the change
+under `Unreleased`. A new
 specification or integration fact routes through future revision intake; it does
 not authorize rewriting historical profiles or old release evidence.
 

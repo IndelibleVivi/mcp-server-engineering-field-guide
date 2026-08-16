@@ -4,7 +4,7 @@
 
 ## Unreleased
 
-- Added a comprehensive bilingual architecture atlas with a renderer-neutral 26-node / 42-edge model, three native portrait view pairs, editable Excalidraw sources, publication SVGs, and a reproducible render pipeline.
+- Added a comprehensive bilingual architecture atlas with a renderer-neutral 26-node / 42-edge model, three semantic views in native portrait and landscape layout pairs, editable Excalidraw sources, publication SVGs, and a reproducible render pipeline.
 - Made authority owners, canonical state, evidence ceilings, evaluation repair, maintenance feedback, and declared non-claims first-class architecture rather than reducing the project to a linear repository flow.
 
 ## 2.0.1 — 2026-08-16
