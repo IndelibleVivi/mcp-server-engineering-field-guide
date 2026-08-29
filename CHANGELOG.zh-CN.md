@@ -6,6 +6,7 @@
 
 - 加入完整 bilingual architecture atlas：renderer-neutral 26-node / 42-edge model、三组 semantic views 的 native portrait / landscape layout pairs、editable Excalidraw sources、publication SVGs 与可重复执行的 render pipeline。
 - 把 authority owners、canonical state、evidence ceilings、evaluation repair、maintenance feedback 与 declared non-claims 作为 first-class architecture 保留，不再把项目压缩成 linear repository flow。
+- 加入用于一眼进入项目的 bilingual native-SVG `V-FRONT` repository view，在 canonical model 中登记其 wide editorial layout，并让 deeper atlas 继续作为未经 crop 的 inspection authority。
 
 ## 2.0.1 — 2026-08-16
 

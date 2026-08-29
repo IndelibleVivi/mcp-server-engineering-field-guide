@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="guide-title guide-desc" lang="zh-CN">
+  <title id="guide-title">MCP Server Engineering Field Guide 的 front-door review architecture</title>
+  <desc id="guide-desc">一次 review 从外部指定 authority 开始，选择 stable method 和 exact revision profile，再确认 target revision、transport、deployment、owner、enforcement order 与 evidence ceiling，最后形成 applicable、not applicable 或 unknown 的有界判断。Field Guide 解释和引导；target system 仍然拥有 transport、capability core、deployment、projection 与 runtime truth。</desc>
+  <defs>
+    <marker id="guide-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#78917c"/>
+    </marker>
+    <style>
+      .serif { font-family: "Iowan Old Style", "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif; }
+      .sans { font-family: "Avenir Next", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: "SFMono-Regular", "Noto Sans Mono CJK SC", Consolas, monospace; }
+      .ink { fill: #20241f; }
+      .soft { fill: #515a52; }
+      .muted { fill: #778078; }
+      .green { fill: #4f6955; }
+      .ochre { fill: #966519; }
+      .micro { font-size: 11px; letter-spacing: 1.5px; }
+      .hairline { stroke: #dce5de; stroke-width: 1; vector-effect: non-scaling-stroke; }
+      .route { fill: none; stroke: #9dad9f; stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#fbfdfa"/>
+
+  <g id="heading">
+    <text x="96" y="62" class="mono micro green">FIELD GUIDE ARCHITECTURE / V-FRONT</text>
+    <text x="1504" y="62" text-anchor="end" class="mono micro muted">REVISION · OWNER · EVIDENCE</text>
+    <text x="96" y="132" class="serif ink" font-size="52" font-weight="500" letter-spacing="-1.6">先认清谁拥有真相，才决定该加什么 control。</text>
+    <text x="96" y="176" class="serif soft" font-size="19">Stable method 不替代 moving specifications；review 也不能越过实际 evidence ceiling。</text>
+    <path d="M96 212H1504" class="hairline"/>
+  </g>
+
+  <g id="review-route">
+    <path d="M425 258V648M770 258V648M1120 258V648" class="hairline"/>
+
+    <g id="named-authority">
+      <text x="96" y="263" class="mono micro green">01 / R0 · S0 · N00–N02</text>
+      <text x="96" y="314" class="serif ink" font-size="28">指定 authority</text>
+      <text x="96" y="350" class="sans soft" font-size="14">先固定真实 governing sources，</text>
+      <text x="96" y="373" class="sans soft" font-size="14">不让 repository profile 冒充规范本身。</text>
+      <path d="M96 405H385" class="hairline"/>
+      <text x="96" y="443" class="mono muted" font-size="11.5">MCP REVISION</text>
+      <text x="96" y="480" class="mono muted" font-size="11.5">JSON-RPC / HTTP</text>
+      <text x="96" y="517" class="mono muted" font-size="11.5">DATED INTEGRATION GUIDANCE</text>
+      <path d="M96 550H385" class="hairline"/>
+      <text x="96" y="582" class="serif green" font-size="15">normative truth stays upstream</text>
+      <text x="96" y="616" class="sans muted" font-size="12">Profile 可以 pin 与解释，不能重写。</text>
+    </g>
+
+    <g id="selected-method">
+      <text x="465" y="263" class="mono micro green">02 / R1–R2 · N10/N11/N20/N21</text>
+      <text x="465" y="314" class="serif ink" font-size="28">选择 method / profile</text>
+      <text x="465" y="350" class="sans soft" font-size="14">稳定原则与 revision-specific truth 分层，</text>
+      <text x="465" y="373" class="sans soft" font-size="14">skill 只路由当前任务真正需要的 references。</text>
+      <path d="M465 405H730" class="hairline"/>
+      <text x="465" y="443" class="mono muted" font-size="11.5">STABLE CORE / N10</text>
+      <text x="465" y="480" class="mono muted" font-size="11.5">REVISION PROFILE / N11</text>
+      <text x="465" y="517" class="mono muted" font-size="11.5">MODE + REFERENCES / N20–N21</text>
+      <path d="M465 550H730" class="hairline"/>
+      <text x="465" y="582" class="serif green" font-size="15">select proportionately</text>
+      <text x="465" y="616" class="sans muted" font-size="12">窄任务不必强行运行整套 workflow。</text>
+    </g>
+
+    <g id="target-preflight">
+      <text x="810" y="263" class="mono micro green">03 / R3 · N30–N34</text>
+      <text x="810" y="314" class="serif ink" font-size="28">确认 owner 与顺序</text>
+      <text x="810" y="350" class="sans soft" font-size="14">先做 target facts preflight，</text>
+      <text x="810" y="373" class="sans soft" font-size="14">再选择 transport、deployment 与 App controls。</text>
+      <path d="M810 405H1080" class="hairline"/>
+      <text x="810" y="443" class="mono muted" font-size="11.5">REVISION · TRANSPORT</text>
+      <text x="810" y="480" class="mono muted" font-size="11.5">DEPLOYMENT · REACHABILITY</text>
+      <text x="810" y="517" class="mono muted" font-size="11.5">CAPABILITY OWNER · EVIDENCE CEILING</text>
+      <path d="M810 550H1080" class="hairline"/>
+      <text x="810" y="582" class="serif green" font-size="15">enforce before consumption</text>
+      <text x="810" y="606" class="sans muted" font-size="12">后置 control 不能倒流保护已经消耗的</text>
+      <text x="810" y="626" class="sans muted" font-size="12">resource、state 或 authority。</text>
+    </g>
+
+    <g id="bounded-decision">
+      <text x="1160" y="263" class="mono micro green">04 / R3 · N35 · U4</text>
+      <text x="1160" y="314" class="serif ink" font-size="28">停在 evidence ceiling</text>
+      <text x="1160" y="350" class="sans soft" font-size="14">Observation 到哪一层，</text>
+      <text x="1160" y="373" class="sans soft" font-size="14">receipt 和 claim 就停在哪一层。</text>
+      <path d="M1160 405H1504" class="hairline"/>
+      <text x="1160" y="445" class="mono green" font-size="12" letter-spacing="1.1">APPLICABLE</text>
+      <text x="1300" y="445" class="sans soft" font-size="13">control 属于该 owner / boundary</text>
+      <text x="1160" y="482" class="mono muted" font-size="12" letter-spacing="1.1">NOT APPLICABLE</text>
+      <text x="1300" y="482" class="sans soft" font-size="13">例如 stdio 不承担 HTTP controls</text>
+      <text x="1160" y="519" class="mono ochre" font-size="12" letter-spacing="1.1">UNKNOWN / U4</text>
+      <text x="1300" y="519" class="sans soft" font-size="13">runtime / host 尚未被观察</text>
+      <path d="M1160 550H1504" class="hairline"/>
+      <text x="1160" y="582" class="serif green" font-size="15">bounded claim, explicit residual</text>
+      <text x="1160" y="616" class="sans muted" font-size="12">缺 evidence 不是 failure，也不是 permission。</text>
+    </g>
+
+    <path d="M389 456H445" class="route" marker-end="url(#guide-arrow)"/>
+    <path d="M734 456H790" class="route" marker-end="url(#guide-arrow)"/>
+    <path d="M1084 456H1140" class="route" marker-end="url(#guide-arrow)"/>
+  </g>
+
+  <g id="target-authority-band">
+    <path d="M96 690H1504" class="hairline"/>
+    <text x="96" y="726" class="mono micro green">TARGET SYSTEM OWNS S2 / RUNTIME TRUTH</text>
+    <text x="96" y="768" class="serif ink" font-size="22">N31 transport envelope  →  N32 shared capability core  →  N33 deployment owners  /  N34 projections</text>
+    <text x="1504" y="727" text-anchor="end" class="sans muted" font-size="12.5">Guide 可以解释与建议；只有 target-authorized path 能执行或改变 state。</text>
+  </g>
+
+  <g id="footer">
+    <path d="M96 808H1504" class="hairline"/>
+    <text x="96" y="850" class="serif ink" font-size="22">revision 对齐 · ownership 对齐 · evidence 对齐</text>
+    <text x="96" y="878" class="mono muted" font-size="10" letter-spacing="1.2">MCP SERVER ENGINEERING FIELD GUIDE / PUBLIC ARCHITECTURE</text>
+    <text x="1504" y="878" text-anchor="end" class="mono muted" font-size="10" letter-spacing="1.2">CC BY 4.0</text>
+  </g>
+</svg>

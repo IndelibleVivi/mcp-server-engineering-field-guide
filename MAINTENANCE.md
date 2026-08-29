@@ -48,8 +48,9 @@ The guide, protocol profiles, moving integration guidance, case-study receipts, 
   native siblings when both materially help. Share one semantic model and
   stable IDs; name the reader job of each geometry and never let layout variants
   drift into separate truths.
-- Keep `.excalidraw` geometry editable and keep publication SVGs paired. Run `prepare_bilingual_architecture_scenes.py`, `layout_portrait_architecture_scenes.py`, and `render_architecture_svgs.py` in that order.
-- Inspect all twelve SVGs at their intended reading scales. A successful script run does not establish legibility, correct connector routing, sibling alignment, or semantic completeness.
+- Keep `.excalidraw` geometry editable and publication SVGs paired for the three deep views. Run `prepare_bilingual_architecture_scenes.py`, `layout_portrait_architecture_scenes.py`, and `render_architecture_svgs.py` in that order.
+- Maintain `V-FRONT` as two self-contained native-SVG source/publication siblings. Change the model first when semantics move; then update both languages, validate XML and forbidden external dependencies, and inspect 1600×900 plus README-width browser renders.
+- Inspect all twelve deep-atlas SVGs and both `V-FRONT` SVGs at their intended reading scales. A successful script or XML check does not establish legibility, correct connector routing, sibling alignment, or semantic completeness.
 
 ## External review handoff
 

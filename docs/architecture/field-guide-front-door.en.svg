@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="guide-title guide-desc" lang="en">
+  <title id="guide-title">Front-door review architecture for the MCP Server Engineering Field Guide</title>
+  <desc id="guide-desc">A review begins with named external authorities, selects the stable method and exact revision profile, then establishes target revision, transport, deployment, owner, enforcement order, and evidence ceiling before producing an applicable, not applicable, or unknown bounded decision. The Field Guide interprets and guides; the target system still owns transport, capability core, deployment, projections, and runtime truth.</desc>
+  <defs>
+    <marker id="guide-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 10 5 0 10Z" fill="#78917c"/>
+    </marker>
+    <style>
+      .serif { font-family: "Iowan Old Style", "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, serif; }
+      .sans { font-family: "Avenir Next", "PingFang SC", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: "SFMono-Regular", "Noto Sans Mono CJK SC", Consolas, monospace; }
+      .ink { fill: #20241f; }
+      .soft { fill: #515a52; }
+      .muted { fill: #778078; }
+      .green { fill: #4f6955; }
+      .ochre { fill: #966519; }
+      .micro { font-size: 11px; letter-spacing: 1.5px; }
+      .hairline { stroke: #dce5de; stroke-width: 1; vector-effect: non-scaling-stroke; }
+      .route { fill: none; stroke: #9dad9f; stroke-width: 1.25; vector-effect: non-scaling-stroke; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="#fbfdfa"/>
+
+  <g id="heading">
+    <text x="96" y="62" class="mono micro green">FIELD GUIDE ARCHITECTURE / V-FRONT</text>
+    <text x="1504" y="62" text-anchor="end" class="mono micro muted">REVISION · OWNER · EVIDENCE</text>
+    <text x="96" y="132" class="serif ink" font-size="52" font-weight="500" letter-spacing="-1.6">Name the authority before prescribing the control.</text>
+    <text x="96" y="176" class="serif soft" font-size="19">Stable method does not replace moving specifications; review cannot outrun its evidence ceiling.</text>
+    <path d="M96 212H1504" class="hairline"/>
+  </g>
+
+  <g id="review-route">
+    <path d="M425 258V648M770 258V648M1120 258V648" class="hairline"/>
+
+    <g id="named-authority">
+      <text x="96" y="263" class="mono micro green">01 / R0 · S0 · N00–N02</text>
+      <text x="96" y="314" class="serif ink" font-size="28">Name the authority</text>
+      <text x="96" y="350" class="sans soft" font-size="14">Fix the governing sources first;</text>
+      <text x="96" y="373" class="sans soft" font-size="14">a repository profile is not the specification.</text>
+      <path d="M96 405H385" class="hairline"/>
+      <text x="96" y="443" class="mono muted" font-size="11.5">MCP REVISION</text>
+      <text x="96" y="480" class="mono muted" font-size="11.5">JSON-RPC / HTTP</text>
+      <text x="96" y="517" class="mono muted" font-size="11.5">DATED INTEGRATION GUIDANCE</text>
+      <path d="M96 550H385" class="hairline"/>
+      <text x="96" y="582" class="serif green" font-size="15">normative truth stays upstream</text>
+      <text x="96" y="616" class="sans muted" font-size="12">A profile may pin and interpret, never rewrite.</text>
+    </g>
+
+    <g id="selected-method">
+      <text x="465" y="263" class="mono micro green">02 / R1–R2 · N10/N11/N20/N21</text>
+      <text x="465" y="314" class="serif ink" font-size="28">Select method / profile</text>
+      <text x="465" y="350" class="sans soft" font-size="14">Separate durable principles from revision truth;</text>
+      <text x="465" y="373" class="sans soft" font-size="14">the skill routes only the references this task needs.</text>
+      <path d="M465 405H730" class="hairline"/>
+      <text x="465" y="443" class="mono muted" font-size="11.5">STABLE CORE / N10</text>
+      <text x="465" y="480" class="mono muted" font-size="11.5">REVISION PROFILE / N11</text>
+      <text x="465" y="517" class="mono muted" font-size="11.5">MODE + REFERENCES / N20–N21</text>
+      <path d="M465 550H730" class="hairline"/>
+      <text x="465" y="582" class="serif green" font-size="15">select proportionately</text>
+      <text x="465" y="616" class="sans muted" font-size="12">A narrow task need not run the full workflow.</text>
+    </g>
+
+    <g id="target-preflight">
+      <text x="810" y="263" class="mono micro green">03 / R3 · N30–N34</text>
+      <text x="810" y="314" class="serif ink" font-size="28">Confirm owner &amp; order</text>
+      <text x="810" y="350" class="sans soft" font-size="14">Run the target-facts preflight first,</text>
+      <text x="810" y="373" class="sans soft" font-size="14">then select transport, deployment, and App controls.</text>
+      <path d="M810 405H1080" class="hairline"/>
+      <text x="810" y="443" class="mono muted" font-size="11.5">REVISION · TRANSPORT</text>
+      <text x="810" y="480" class="mono muted" font-size="11.5">DEPLOYMENT · REACHABILITY</text>
+      <text x="810" y="517" class="mono muted" font-size="11.5">CAPABILITY OWNER · EVIDENCE CEILING</text>
+      <path d="M810 550H1080" class="hairline"/>
+      <text x="810" y="582" class="serif green" font-size="15">enforce before consumption</text>
+      <text x="810" y="606" class="sans muted" font-size="12">A later control cannot retroactively protect</text>
+      <text x="810" y="626" class="sans muted" font-size="12">resource, state, or authority already consumed.</text>
+    </g>
+
+    <g id="bounded-decision">
+      <text x="1160" y="263" class="mono micro green">04 / R3 · N35 · U4</text>
+      <text x="1160" y="314" class="serif ink" font-size="28">Stop at the evidence ceiling</text>
+      <text x="1160" y="350" class="sans soft" font-size="14">Where observation stops,</text>
+      <text x="1160" y="373" class="sans soft" font-size="14">the receipt and claim stop too.</text>
+      <path d="M1160 405H1504" class="hairline"/>
+      <text x="1160" y="445" class="mono green" font-size="12" letter-spacing="1.1">APPLICABLE</text>
+      <text x="1300" y="445" class="sans soft" font-size="13">belongs to this owner / boundary</text>
+      <text x="1160" y="482" class="mono muted" font-size="12" letter-spacing="1.1">NOT APPLICABLE</text>
+      <text x="1300" y="482" class="sans soft" font-size="13">for example, no HTTP controls on stdio</text>
+      <text x="1160" y="519" class="mono ochre" font-size="12" letter-spacing="1.1">UNKNOWN / U4</text>
+      <text x="1300" y="519" class="sans soft" font-size="13">runtime or host is unobserved</text>
+      <path d="M1160 550H1504" class="hairline"/>
+      <text x="1160" y="582" class="serif green" font-size="15">bounded claim, explicit residual</text>
+      <text x="1160" y="616" class="sans muted" font-size="12">Missing evidence is neither failure nor permission.</text>
+    </g>
+
+    <path d="M389 456H445" class="route" marker-end="url(#guide-arrow)"/>
+    <path d="M734 456H790" class="route" marker-end="url(#guide-arrow)"/>
+    <path d="M1084 456H1140" class="route" marker-end="url(#guide-arrow)"/>
+  </g>
+
+  <g id="target-authority-band">
+    <path d="M96 690H1504" class="hairline"/>
+    <text x="96" y="726" class="mono micro green">TARGET SYSTEM OWNS S2 / RUNTIME TRUTH</text>
+    <text x="96" y="768" class="serif ink" font-size="22">N31 transport envelope  →  N32 shared capability core  →  N33 deployment owners  /  N34 projections</text>
+    <text x="1504" y="727" text-anchor="end" class="sans muted" font-size="12.5">The Guide may explain and advise; only a target-authorized path may execute or mutate state.</text>
+  </g>
+
+  <g id="footer">
+    <path d="M96 808H1504" class="hairline"/>
+    <text x="96" y="850" class="serif ink" font-size="22">revision aligned · ownership aligned · evidence aligned</text>
+    <text x="96" y="878" class="mono muted" font-size="10" letter-spacing="1.2">MCP SERVER ENGINEERING FIELD GUIDE / PUBLIC ARCHITECTURE</text>
+    <text x="1504" y="878" text-anchor="end" class="mono muted" font-size="10" letter-spacing="1.2">CC BY 4.0</text>
+  </g>
+</svg>

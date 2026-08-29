@@ -1,7 +1,7 @@
 {
   "schema": "draw-clear-architecture/model-v1",
   "diagram_family": "mcp-server-engineering-field-guide",
-  "model_revision": "2026-08-16.3",
+  "model_revision": "2026-08-30.1",
   "evidence_snapshot": {
     "public_repository": "https://github.com/IndelibleVivi/mcp-server-engineering-field-guide",
     "guide_version": "2.0.1",
@@ -14,6 +14,7 @@
     "en": "How does the system connect moving external specifications, stable guidance, revision-specific truth, target implementations, executable review, same-owner evaluation, and public release without losing provenance or authority boundaries?"
   },
   "audiences": [
+    "repository visitors who need a one-glance front door before entering the deep atlas",
     "PDF companion readers who need a deep Chinese-leading project map",
     "repository readers and reusers who need a comprehensive bilingual architecture reference",
     "maintainers who need stable IDs for later revision and figure updates"
@@ -441,6 +442,18 @@
   ],
   "views": [
     {
+      "id": "V-FRONT",
+      "title_zh_CN": "先认清谁拥有真相，才决定该加什么 control",
+      "title_en": "Name the authority before prescribing the control",
+      "purpose": "Give repository visitors a one-glance review route from named authority through method/profile selection and target ownership to a bounded decision, while keeping target runtime truth outside repository authority.",
+      "regions": ["R0", "R1", "R2", "R3"],
+      "required_nodes": ["N00", "N01", "N02", "N10", "N11", "N20", "N21", "N30", "N31", "N32", "N33", "N34", "N35"],
+      "required_states": ["S0", "S2"],
+      "required_unknowns": ["U4"],
+      "layout_variants": ["repository-front-door"],
+      "renderer_guidance": "Use one wide editorial spread with four line-led judgment stages and a separate target-authority band. Preserve the N/R/S/U coordinates in visible copy, keep U4 explicit, and show that only the target-authorized path owns runtime truth. Chinese and English are native language siblings of the same geometry; this summary view does not replace or crop the deeper V-REVIEW atlas."
+    },
+    {
       "id": "V-MASTER",
       "title_zh_CN": "Authority · Artifact · Execution · Evidence · Evaluation · Release",
       "title_en": "Authority · Artifact · Execution · Evidence · Evaluation · Release",
@@ -484,10 +497,15 @@
       "id": "landscape",
       "reader_job": "Repository exploration, desktop inspection, and wide-screen architecture discussion",
       "contract": "Native landscape geometry preserving the same selected view, stable IDs, edge meanings, versions, states, evidence status, and unknowns as its portrait sibling."
+    },
+    {
+      "id": "repository-front-door",
+      "reader_job": "One-glance README orientation before entering the deep architecture atlas",
+      "contract": "Native 16:9 editorial geometry with Chinese and English language siblings. It is a separately selected summary view, not a crop, splice, or replacement for V-REVIEW."
     }
   ],
   "render_contract": {
-    "semantic_rule": "A renderer may change coordinates or shorten visible node copy, but it may not delete a required node, region, state owner, feedback edge, version boundary, evidence status, or unknown from the selected view. Portrait and landscape layout siblings share this semantic model and are maintained as separate native geometries, not crops, rotations, splices, or independent semantic truths. A materially different question still requires a separately selected view.",
+    "semantic_rule": "A renderer may change coordinates or shorten visible node copy, but it may not delete a required node, region, state owner, feedback edge, version boundary, evidence status, or unknown from the selected view. Each selected view follows its declared layout variants: the deep atlas preserves native portrait and landscape siblings, while V-FRONT declares one wide repository-front-door geometry with native Chinese and English language siblings. No variant is a crop, rotation, splice, or independent semantic truth. A materially different question still requires a separately selected view.",
     "typography": "Serif/Song-led semantic labels and prose; mono for stable IDs, revisions, evidence states, and receipts; no large bold Hei/sans technical shorthand.",
     "visual_language": "White field, fine rules, nested planes, deliberate routing gutters, stable coordinate IDs, restrained dawn blue/verified green/ochre/carmine status accents, no default Mermaid theme and no sterilized six-node flow.",
     "shared_ids": "All PDF and repository views retain the N/R/S/E/U identifiers in editable source or legend so details remain cross-addressable."

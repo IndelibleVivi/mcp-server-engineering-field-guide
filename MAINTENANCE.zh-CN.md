@@ -44,8 +44,9 @@ Guide、protocol profiles、moving integration guidance、case-study receipts �
 - 新 form factor 使用原生 layout；只有 reader 的问题发生实质变化时才新建 semantic
   view。不能把 landscape canvas crop、rotate 或 splice 成 portrait detail page。
 - Landscape repository / full-screen 与 portrait document / print layouts 都能 materially help 时，把它们作为 native siblings 保留。两者共用一个 semantic model 与 stable IDs，明确各自 reader job，不能让 layout variants 漂移成两套 truth。
-- `.excalidraw` geometry 保持 editable，publication SVGs 保持成对；依次运行 `prepare_bilingual_architecture_scenes.py`、`layout_portrait_architecture_scenes.py` 与 `render_architecture_svgs.py`。
-- 在各自 intended reading scale 检查全部十二张 SVG。Script 成功运行并不证明 legibility、connector routing、sibling alignment 或 semantic completeness。
+- 三组 deep views 的 `.excalidraw` geometry 保持 editable，publication SVGs 保持成对；依次运行 `prepare_bilingual_architecture_scenes.py`、`layout_portrait_architecture_scenes.py` 与 `render_architecture_svgs.py`。
+- `V-FRONT` 作为两张 self-contained native-SVG source/publication siblings 维护。Semantics 改变时先改 model，再同步两个 language files，检查 XML 与 forbidden external dependencies，并实际查看 1600×900 / README-width browser renders。
+- 在各自 intended reading scale 检查十二张 deep-atlas SVG 与两张 `V-FRONT` SVG。Script 或 XML check 成功并不证明 legibility、connector routing、sibling alignment 或 semantic completeness。
 
 ## External review handoff
 

@@ -10,6 +10,8 @@ MCP review 最容易在四处失真：拿最新 revision 追溯审判历史代�
 
 一个 30 秒例子：stdio-only server 应把 Host、Origin、CORS 与 HTTP body framing 标记为 `not applicable`；parent/OS process boundary 负责 reachability 与 caller possession，但不会因此变成 HTTP authentication protocol；source inspection 或 project-local tests 也必须停留在 independent reproduction 以下的 evidence level。
 
+![Field Guide front door：指定 authority、选择 method/profile、确认 target ownership 与形成有界判断](docs/architecture/field-guide-front-door.zh-CN.svg)
+
 ## 适合谁
 
 - 设计或审查 remote、HTTP、multi-revision、stateful、effectful 或 MCP App implementations 的 maintainer；
@@ -29,12 +31,12 @@ Release `2.0.1` 通过 32 个 repository tests、portable-package / public-text 
 - [case studies](case-studies/)：以 public、pinned evidence 把通用方法锚定在真实 failure modes 上，并维护中英 semantic peers；
 - 可分发的 [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md)：只加载当前任务真正需要的 reference 的轻量 workflow controller。
 
-Bilingual [architecture atlas](ARCHITECTURE.zh-CN.md)（[English](ARCHITECTURE.md)）
-把这些 surfaces 与 external authority、target-system ownership、same-owner evaluation
-及 release maintenance 连接起来。它包含 renderer-neutral model、editable Excalidraw
-sources 与 publication SVGs，而不是把项目压平成一棵 directory tree。
-每个 semantic view 都有 native landscape repository sibling 与 portrait
-continuous-reading sibling。
+上方 native-SVG front door 是一眼读懂的 `V-FRONT` view。Bilingual
+[architecture atlas](ARCHITECTURE.zh-CN.md)（[English](ARCHITECTURE.md)）再把同一
+model 与 external authority、target-system ownership、same-owner evaluation 及
+release maintenance 连接起来。三组 deep semantic views 继续保留 native landscape /
+portrait siblings 与 editable Excalidraw geometry；front door 是独立的 wide editorial
+view，不是 atlas 的 crop 或替代品。
 
 ## 从哪里开始
 

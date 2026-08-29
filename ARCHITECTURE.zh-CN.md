@@ -14,6 +14,18 @@ boundary、evidence ceiling 与 feedback route 同时可见。
 discovery canary 与八个 scored synthetic scenarios。Repository 后续变化不会静默
 改变这些图所能建立的结论。
 
+## `V-FRONT` — repository front door
+
+![Field Guide front-door review route](docs/architecture/field-guide-front-door.zh-CN.svg)
+
+`V-FRONT` 用一张 wide editorial view 回答进入 repository 时的第一个问题：指定
+external authority，选择 stable method 与 exact profile，确认 target ownership 与
+enforcement order，再停在实际 observation 抵达的 evidence ceiling。它保留 semantic
+model 中的 `R0–R3`、`S0`、`S2`、`N00/N01/N02/N10/N11/N20/N21/N30–N35` 与
+`U4` coordinates，同时有意不展开只有
+deep reading 才需要的 evaluation / release planes。它不是 `V-REVIEW` 的 crop，也不
+替代 `V-REVIEW`。
+
 ## 为什么这套系统需要六个 planes
 
 如果把 `FIELD-GUIDE.md`、`profiles/`、skill、被 review 的 server、evaluation
@@ -56,7 +68,7 @@ Model 的 stable IDs 区分五类经常被一句 “source of truth” 混在一
 revision，却不替代 official specification；test 可以观察 function，却不会因此变成
 host evidence；Git release 可以 identify bytes，却不证明 independent use。
 
-## 三个 semantic views，两套 native layout families
+## 三个 deep semantic views，两套 native layout families
 
 每个 semantic view 都有一张用于 repository / full-screen inspection 的 native
 landscape sibling，以及一张用于 continuous document / print reading 的 native
@@ -150,6 +162,12 @@ independent evidence 缺失时写 `unknown`。
 
 ## Bilingual、editable 与 multi-layout source contract
 
+### Repository front door · native wide SVG
+
+| View | English publication/source SVG | 简体中文 publication/source SVG | Semantic authority |
+| --- | --- | --- | --- |
+| `V-FRONT` | [`field-guide-front-door.en.svg`](docs/architecture/field-guide-front-door.en.svg) | [`field-guide-front-door.zh-CN.svg`](docs/architecture/field-guide-front-door.zh-CN.svg) | [`architecture-model.json`](docs/architecture/architecture-model.json) |
+
 ### Portrait · continuous document 与 print reading
 
 | View | English publication SVG | 简体中文 publication SVG | Editable sources |
@@ -167,9 +185,11 @@ independent evidence 缺失时写 `unknown`。
 | `V-EVALUATION` | [`evaluation-loop.landscape.en.svg`](docs/architecture/evaluation-loop.landscape.en.svg) | [`evaluation-loop.landscape.zh-CN.svg`](docs/architecture/evaluation-loop.landscape.zh-CN.svg) | [English](docs/architecture/evaluation-loop.landscape.en.excalidraw) · [简体中文](docs/architecture/evaluation-loop.landscape.zh-CN.excalidraw) |
 
 [`architecture-model.json`](docs/architecture/architecture-model.json) 拥有 semantic
-regions、nodes、states、edges、unknowns、selected views 与 render contract；
-`.excalidraw` files 拥有 editable geometry 与 connector bindings；SVG 是使用 serif / Song
-semantic copy 与 mono coordinates 的 publication projections。
+regions、nodes、states、edges、unknowns、selected views 与 render contract。三组 deep
+views 由 `.excalidraw` files 拥有 editable geometry 与 connector bindings，SVG 是
+publication projections；两张 `V-FRONT` SVG 直接拥有 native wide geometry 与
+publication bytes，并保持 self-contained、script-free 与 language-paired。所有 views
+都使用 serif / Song semantic copy 与 mono coordinates。
 
 English 与 Chinese 是 language siblings；portrait 与 landscape 是 layout siblings。
 任何 canvas 都不把两种语言硬堆在一起，也不把其中一种语言降成另一种语言旁边的一行
@@ -178,7 +198,7 @@ IDs、versions、owners、edge meanings、evidence status 与 unknowns 必须对
 
 ## Rebuild 与 maintenance
 
-从 repository root 运行 architecture pipeline：
+从 repository root 运行 deep-atlas architecture pipeline：
 
 ```bash
 python3 tools/architecture/prepare_bilingual_architecture_scenes.py
@@ -193,8 +213,13 @@ scenes 保留 deliberate wide geometry。Semantics 不变而只调整版式时�
 geometry。问题真正改变时才从 model 新建独立 view，不能通过 crop、rotate 或 splice
 现有 canvas 制造它。
 
-发布更新前，核验两种语言与两套 layout families，重新 render 十二张 SVG，在各自 intended
-reading scale 逐张检查，再运行
+`V-FRONT` 是 native-SVG source/publication pair，不是 Excalidraw projection。Semantic
+model 改变后，必须同步两个 language siblings，验证 XML，拒绝 script、
+`foreignObject` 与 external-asset dependencies，并在真实 browser 中检查 1600×900 和
+README width 两种尺度。
+
+发布更新前，核验两种语言与所有 declared layout families，重新 render 十二张 deep-atlas
+SVG，再把它们与两张 `V-FRONT` SVG 一起在各自 intended reading scale 逐张检查；随后运行
 repository 的 bilingual、link、public-text 与 test gates，并把变化记录到 `Unreleased`。
 新的 specification 或 integration fact 进入 future revision intake；它不授权重写
 historical profiles 或旧 release evidence。

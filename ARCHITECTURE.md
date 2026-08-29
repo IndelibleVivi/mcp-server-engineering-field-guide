@@ -15,6 +15,19 @@ skill `0.1.0`, release commit
 canary, and eight scored synthetic scenarios. Later repository changes do not
 silently change what these figures establish.
 
+## `V-FRONT` — repository front door
+
+![Field Guide front-door review route](docs/architecture/field-guide-front-door.en.svg)
+
+`V-FRONT` answers the first repository question in one wide editorial view:
+name the external authority, select the stable method and exact profile, confirm
+target ownership and enforcement order, then stop at the observed evidence
+ceiling. It retains `R0–R3`, `S0`, `S2`,
+`N00/N01/N02/N10/N11/N20/N21/N30–N35`, and `U4` coordinates from
+the semantic model while deliberately omitting the evaluation and release
+planes that belong to deeper reading. It is not a crop or replacement for
+`V-REVIEW`.
+
 ## Why the system needs six planes
 
 The project is easier to misread when `FIELD-GUIDE.md`, `profiles/`, the skill,
@@ -60,7 +73,7 @@ upstream one. A profile can pin an MCP revision without replacing the official
 specification. A test can observe a function without becoming host evidence. A
 Git release can identify bytes without proving independent use.
 
-## Three semantic views, two native layout families
+## Three deep semantic views, two native layout families
 
 Each semantic view has a native landscape sibling for repository or full-screen
 inspection and a native portrait sibling for continuous document or print
@@ -165,6 +178,12 @@ system; it would describe a stronger and less truthful one.
 
 ## Bilingual, editable, and multi-layout source contract
 
+### Repository front door · native wide SVG
+
+| View | English publication/source SVG | Simplified Chinese publication/source SVG | Semantic authority |
+| --- | --- | --- | --- |
+| `V-FRONT` | [`field-guide-front-door.en.svg`](docs/architecture/field-guide-front-door.en.svg) | [`field-guide-front-door.zh-CN.svg`](docs/architecture/field-guide-front-door.zh-CN.svg) | [`architecture-model.json`](docs/architecture/architecture-model.json) |
+
 ### Portrait · continuous document and print reading
 
 | View | English publication SVG | Simplified Chinese publication SVG | Editable sources |
@@ -183,9 +202,11 @@ system; it would describe a stronger and less truthful one.
 
 [`architecture-model.json`](docs/architecture/architecture-model.json) owns the
 semantic regions, nodes, states, edges, unknowns, selected views, and render
-contract. The `.excalidraw` files own editable geometry and connector bindings.
-The SVGs are publication projections with serif/Song semantic copy and mono
-coordinates.
+contract. For the three deep views, the `.excalidraw` files own editable geometry
+and connector bindings and the SVGs are publication projections. The two
+`V-FRONT` SVGs directly own their native wide geometry and publication bytes;
+they remain self-contained, script-free, and paired by language. All views use
+serif/Song semantic copy and mono coordinates.
 
 English and Chinese are language siblings; portrait and landscape are layout
 siblings. One canvas does not stack both languages, and neither language is
@@ -195,7 +216,7 @@ edge meanings, evidence status, and unknowns remain aligned.
 
 ## Rebuild and maintenance
 
-Run the architecture pipeline from the repository root:
+Run the deep-atlas architecture pipeline from the repository root:
 
 ```bash
 python3 tools/architecture/prepare_bilingual_architecture_scenes.py
@@ -211,10 +232,15 @@ geometry. Edit only scene geometry when semantics stay fixed. A materially
 different question requires a separately modeled view; do not manufacture it by
 cropping, rotating, or splicing an existing canvas.
 
-Before publishing an update, verify both languages and both layout families,
-render all twelve SVGs, inspect them at their intended reading scales, run the
-repository bilingual, link, public-text, and test gates, and record the change
-under `Unreleased`. A new
+`V-FRONT` is a native-SVG source/publication pair rather than an Excalidraw
+projection. After a semantic-model change, update both language siblings,
+validate them as XML, reject script / `foreignObject` / external-asset
+dependencies, and inspect real browser renders at 1600×900 and README width.
+
+Before publishing an update, verify both languages and every declared layout
+family, render the twelve deep-atlas SVGs, inspect those plus the two `V-FRONT`
+SVGs at their intended reading scales, run the repository bilingual, link,
+public-text, and test gates, and record the change under `Unreleased`. A new
 specification or integration fact routes through future revision intake; it does
 not authorize rewriting historical profiles or old release evidence.
 

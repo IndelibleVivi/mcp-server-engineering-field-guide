@@ -10,6 +10,8 @@ MCP reviews go wrong when they apply the newest revision to historical code, req
 
 In a 30-second example: a stdio-only server should mark Host, Origin, CORS, and HTTP body framing `not applicable`; its parent/OS process boundary owns reachability and caller possession without becoming an HTTP authentication protocol; and source inspection or project-local tests must stay below independent reproduction on the evidence ladder.
 
+![Field Guide front door: named authority, selected method and profile, target ownership, and bounded decision](docs/architecture/field-guide-front-door.en.svg)
+
 ## Who this is for
 
 - Maintainers designing or reviewing remote, HTTP, multi-revision, stateful, effectful, or MCP App implementations.
@@ -29,12 +31,13 @@ The project separates four things that age at different rates:
 - [case studies](case-studies/): public, pinned evidence that keeps the general method grounded in real failures, with English and Simplified Chinese peers;
 - a distributable [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md): a thin workflow controller that loads only the relevant references.
 
-The bilingual [architecture atlas](ARCHITECTURE.md) ([简体中文](ARCHITECTURE.zh-CN.md))
-connects those surfaces to external authority, target-system ownership,
-same-owner evaluation, and release maintenance. It includes a renderer-neutral
-model, editable Excalidraw sources, and publication SVGs rather than flattening
-the project into a directory tree. Each semantic view has native landscape
-repository and portrait continuous-reading siblings.
+The native-SVG front door above is the one-glance `V-FRONT` view. The bilingual
+[architecture atlas](ARCHITECTURE.md) ([简体中文](ARCHITECTURE.zh-CN.md)) then
+connects the same model to external authority, target-system ownership,
+same-owner evaluation, and release maintenance. Its three deep semantic views
+retain native landscape and portrait siblings with editable Excalidraw geometry;
+the front door is a separate wide editorial view, not a crop or replacement for
+the atlas.
 
 ## Start here
 
