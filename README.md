@@ -4,6 +4,16 @@ A revision-aware engineering method for deciding what an MCP server actually nee
 
 [简体中文](README.zh-CN.md) · English
 
+> **Historical repository.** Continued development now lives in
+> [`IndelibleVivi/mcp-boundary`](https://github.com/IndelibleVivi/mcp-boundary),
+> where the maintained Guide is under `guide/` and the active installable skill is
+> `mcp-boundary`. Use that repository for new installation, issues, and
+> contributions. This repository preserves the standalone `2.0.1` release,
+> provenance, and evaluation evidence; its `mcp-server-engineering` skill is kept
+> for historical reproduction, not recommended as a current installation path.
+> The general repository-method project formerly named Softpowers is now
+> [Servotab](https://servotab.com/).
+
 ## What problem this solves
 
 MCP reviews go wrong when they apply the newest revision to historical code, require HTTP controls from a parent-owned stdio server, confuse deployment policy with implementation invariants, or promote implementer-authored tests into independent assurance. This guide keeps revision, transport, ownership, and evidence claims aligned with the server that actually exists.
@@ -29,7 +39,7 @@ The project separates four things that age at different rates:
 - the [stable engineering core](FIELD-GUIDE.md) ([简体中文](FIELD-GUIDE.zh-CN.md)): capability ownership, trust boundaries, evidence discipline, resource budgets, egress, deployment, and verification;
 - [protocol profiles](profiles/) ([简体中文](profiles/README.zh-CN.md)): the repository's pinned, revision-specific reference layer, grounded in the named primary specifications;
 - [case studies](case-studies/): public, pinned evidence that keeps the general method grounded in real failures, with English and Simplified Chinese peers;
-- a distributable [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md): a thin workflow controller that loads only the relevant references.
+- the historical [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md): the standalone `2.0.1` workflow package, retained for release and evaluation reproduction rather than current installation.
 
 The native-SVG front door above is the one-glance `V-FRONT` view. The bilingual
 [architecture atlas](ARCHITECTURE.md) ([简体中文](ARCHITECTURE.zh-CN.md)) then
@@ -45,7 +55,7 @@ the atlas.
 - Auditing an existing server: pin its source revision, identify its declared MCP revision and deployment reachability, then use the [claim and evidence method](FIELD-GUIDE.md#2-evidence-discipline).
 - Upgrading protocol revisions: compare the applicable files in [profiles/](profiles/) and keep historical tests bound to the revision they were written for.
 - Learning from the originating implementation: use the sanitized [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.md).
-- Running an agent workflow: invoke the packaged skill in [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md).
+- Running a current agent workflow: use the active `mcp-boundary` skill from [MCP Boundary](https://github.com/IndelibleVivi/mcp-boundary); use [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md) only to reproduce the standalone `2.0.1` release.
 - Reading the complete ownership and feedback topology: use the [architecture atlas](ARCHITECTURE.md) and its three bilingual views in native landscape and portrait layouts.
 - Maintaining or releasing the reference: follow the [maintenance workflow](MAINTENANCE.md) and [changelog](CHANGELOG.md).
 

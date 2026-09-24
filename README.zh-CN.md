@@ -4,6 +4,15 @@
 
 简体中文 · [English](README.md)
 
+> **历史仓库。** 后续开发已经迁至
+> [`IndelibleVivi/mcp-boundary`](https://github.com/IndelibleVivi/mcp-boundary)：
+> 持续维护的 Guide 位于 `guide/`，当前可安装的活跃 skill 是
+> `mcp-boundary`。新的安装、issue 与贡献请前往该仓库。本仓库保留独立
+> `2.0.1` release、provenance 与 evaluation evidence；其中的
+> `mcp-server-engineering` skill 只用于历史复现，不再作为当前安装路径推荐。
+> 原名 Softpowers 的通用仓库工程方法项目现名为
+> [Servotab](https://servotab.com/)。
+
 ## 解决什么问题
 
 MCP review 最容易在四处失真：拿最新 revision 追溯审判历史代码；给 parent-owned stdio server 强加 HTTP controls；把 deployment policy 与 implementation invariants 混在一起；或者把 implementer-authored tests 抬高成 independent assurance。本指南让 revision、transport、ownership 与 evidence claims 始终对应实际存在的 server。
@@ -29,7 +38,7 @@ Release `2.0.1` 通过 32 个 repository tests、portable-package / public-text 
 - [稳定工程核心](FIELD-GUIDE.zh-CN.md)（[English](FIELD-GUIDE.md)）：capability ownership、trust boundaries、evidence discipline、resource budgets、egress、deployment 与 verification；
 - [protocol profiles](profiles/README.zh-CN.md)（[English](profiles/README.md)）：本仓库基于具名 primary specifications 固定下来的 revision-specific reference layer；
 - [case studies](case-studies/)：以 public、pinned evidence 把通用方法锚定在真实 failure modes 上，并维护中英 semantic peers；
-- 可分发的 [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md)：只加载当前任务真正需要的 reference 的轻量 workflow controller。
+- 历史 [`mcp-server-engineering` skill](skill/mcp-server-engineering/SKILL.md)：独立 `2.0.1` release 的 workflow package，仅保留用于 release 与 evaluation 复现，不再用于当前安装。
 
 上方 native-SVG front door 是一眼读懂的 `V-FRONT` view。Bilingual
 [architecture atlas](ARCHITECTURE.zh-CN.md)（[English](ARCHITECTURE.md)）再把同一
@@ -44,7 +53,7 @@ view，不是 atlas 的 crop 或替代品。
 - 审查现有 server：pin source revision，识别它声明的 MCP revision 与 deployment reachability，再使用 [claim / evidence 方法](FIELD-GUIDE.zh-CN.md#2-evidence-discipline)。
 - 升级 protocol revision：对比 [profiles/](profiles/README.zh-CN.md) 中适用的文件，并让 historical tests 继续绑定其原始 revision。
 - 阅读起源实现：使用已去除私人工作痕迹的 [thinking-block case study](case-studies/gpt-thinking-block-mcp/CASE-STUDY.zh-CN.md)。
-- 运行 agent workflow：调用 [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md) 中打包的 skill。
+- 运行当前 agent workflow：使用 [MCP Boundary](https://github.com/IndelibleVivi/mcp-boundary) 中活跃的 `mcp-boundary` skill；只有复现独立 `2.0.1` release 时才使用 [skill/mcp-server-engineering](skill/mcp-server-engineering/SKILL.md)。
 - 阅读完整 ownership / feedback topology：使用 [architecture atlas](ARCHITECTURE.zh-CN.md) 与其中三组 bilingual views 的 native landscape / portrait layouts。
 - 维护或发布 reference：遵循 [maintenance workflow](MAINTENANCE.zh-CN.md) 与 [changelog](CHANGELOG.zh-CN.md)。
 
